@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS Booking
 (
 	Customer INT NOT NULL PRIMARY KEY,
 	TourID INT[],
-	Login INT,
-	Password INT
+	Login VARCHAR(30),
+	Password VARCHAR(30)
 );
 
 CREATE TABLE IF NOT EXISTS Users
