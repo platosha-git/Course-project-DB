@@ -11,7 +11,7 @@ namespace Tours
     }
     public static class ConfigManager
     {
-        public static string GetConnectionString(int AccessLvl)
+        public static string GetConnectionString(AccessLevel lvl)
         {
             string connectionStr = null; 
             try
@@ -20,17 +20,17 @@ namespace Tours
                        .AddJsonFile("appsettings.json")
                        .Build();
 
-                if (AccessLvl == (int)AccessLevel.Manager)
+                if (lvl == AccessLevel.Manager)
                 {
                     connectionStr = config["Connections:Manager"];
                 }
 
-                else if (AccessLvl == (int)AccessLevel.Tourist)
+                else if (lvl == AccessLevel.Tourist)
                 {
                     connectionStr = config["Connections:Tourist"];
                 }
 
-                else if (AccessLvl == (int)AccessLevel.Guest)
+                else if (lvl == AccessLevel.Guest)
                 {
                     connectionStr = config["Connections:Guest"];
                 }               

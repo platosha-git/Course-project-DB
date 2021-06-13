@@ -64,6 +64,17 @@ namespace Tours.ImpRepositories
         {
         }
 
+        public Booking GetUserByLP(string login, string password)
+        {
+            IQueryable<Booking> users = db.Bookings.Where(needed => needed.Login.Equals(login) &&
+                                                                   needed.Password.Equals(password));
+            if (users.Count() != 0)
+            {
+                return users.First();
+            }
+            return null;
+        }
+
         public int[] GetBookToursByID(int id)
         {
             return FindByID(id).Toursid;

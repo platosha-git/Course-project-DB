@@ -51,6 +51,16 @@ namespace Tours.ComponentsBL
             return hotelRepository.FindAll();
         }
 
+        public Hotel GetHotelByID(int hotelID)
+        {
+            return hotelRepository.FindByID(hotelID);
+        }
+
+        public List<Hotel> GetHotelsByCity(string city)
+        {
+            return hotelRepository.FindHotelsByCity(city);
+        }
+
         public Hotel GetHotelByName(string name)
         {
             return hotelRepository.FindHotelByName(name);
@@ -85,6 +95,11 @@ namespace Tours.ComponentsBL
             return foodRepository.FindAll();
         }
 
+        public Food GetFoodByID(int foodID)
+        {
+            return foodRepository.FindByID(foodID);
+        }
+
         public List<Food> GetFoodByCategory(string cat)
         {
             return foodRepository.FindFoodByCategory(cat);
@@ -103,6 +118,16 @@ namespace Tours.ComponentsBL
         public List<Food> GetFoodByBar(bool bar)
         {
             return foodRepository.FindFoodByBar(bar);
+        }
+
+        public List<Food> GetFoodByParams(string cat, bool vm, bool cm, bool bar)
+        {
+            return foodRepository.FindFoodByParams(cat, vm, cm, bar);
+        }
+
+        public List<Food> GetFoodByParams(bool vm, bool cm, bool bar)
+        {
+            return foodRepository.FindFoodByParams(vm, cm, bar);
         }
 
         /*--------------------------------------------------------------

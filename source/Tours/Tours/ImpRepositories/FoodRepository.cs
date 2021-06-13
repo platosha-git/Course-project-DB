@@ -110,6 +110,23 @@ namespace Tours.ImpRepositories
             return foods.ToList();
         }
 
+        public List<Food> FindFoodByParams(string cat, bool vm, bool cm, bool bar)
+        {
+            IQueryable<Food> foods = db.Foods.Where(needed => needed.Category == cat &&
+                                                              needed.Vegmenu == vm &&
+                                                              needed.Childrenmenu == cm &&
+                                                              needed.Bar == bar);
+            return foods.ToList();
+        }
+
+        public List<Food> FindFoodByParams(bool vm, bool cm, bool bar)
+        {
+            IQueryable<Food> foods = db.Foods.Where(needed => needed.Vegmenu == vm &&
+                                                              needed.Childrenmenu == cm &&
+                                                              needed.Bar == bar);
+            return foods.ToList();
+        }
+
         public void Dispose()
         {
             db.Dispose();

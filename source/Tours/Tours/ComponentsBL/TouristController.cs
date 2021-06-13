@@ -17,6 +17,11 @@ namespace Tours.ComponentsBL
             usersRepository = usersRep;
         }
 
+        public Tour GetTourByID(int tourID)
+        {
+            return tourRepository.FindByID(tourID);
+        }
+
         public List<Tour> GetAllBookings(int userID)
         {
             int[] ToursID = bookingRepository.GetBookToursByID(userID);
@@ -37,16 +42,28 @@ namespace Tours.ComponentsBL
             Booking bk = bookingRepository.FindByID(userID);
             int[] ToursID = bk.Toursid;
             int size = ToursID.Length;
-            
-            int[] NToursID = new int[size + 1];
-            for (int i = 0; i < size; i++)
-            {
-                NToursID[i] = ToursID[i];
-            }
-            NToursID[size] = TourID;
 
-            bk.Toursid = NToursID;
-            bookingRepository.Update(bk);
+            bool isAlreadyExist = false;
+            for (int i = 0; i < size && !isAlreadyExist; i++)
+            {
+                if (ToursID[i] == TourID)
+                {
+                    isAlreadyExist = true;
+                }
+            }
+
+            if (!isAlreadyExist)
+            {
+                int[] NToursID = new int[size + 1];
+                for (int i = 0; i < size; i++)
+                {
+                    NToursID[i] = ToursID[i];
+                }
+                NToursID[size] = TourID;
+
+                bk.Toursid = NToursID;
+                bookingRepository.Update(bk);
+            }
         }
 
         public void RemoveTour(int TourID, int userID)

@@ -85,6 +85,12 @@ namespace Tours.ImpRepositories
                 logger.Error(err.Message, "+HotelRep : Error trying to delete hotel {Number} from Hotels", id);
             }
         }
+        
+        public List<Hotel> FindHotelsByCity(string city)
+        {
+            IQueryable<Hotel> hotels = db.Hotels.Where(needed => needed.City.Equals(city));
+            return hotels.ToList();
+        }
 
         public Hotel FindHotelByName(string name)
         {

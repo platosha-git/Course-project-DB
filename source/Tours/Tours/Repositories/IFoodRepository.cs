@@ -8,5 +8,7 @@ namespace Tours.Repositories
         List<Food> FindFoodByVegMenu(bool vm);
         List<Food> FindFoodByChildMenu(bool cm);
         List<Food> FindFoodByBar(bool bar);
+        List<Food> FindFoodByParams(string cat, bool vm, bool cm, bool bar);
+        List<Food> FindFoodByParams(bool vm, bool cm, bool bar);
     }
 }
