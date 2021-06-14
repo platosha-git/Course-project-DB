@@ -20,9 +20,7 @@ namespace Tours
         {
         }
 
-        public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<Busticket> Bustickets { get; set; }
-        public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }
         public virtual DbSet<Planeticket> Planetickets { get; set; }
@@ -44,36 +42,6 @@ namespace Tours
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Russian_Russia.1251");
 
-            modelBuilder.Entity<Booking>(entity =>
-            {
-                entity.HasKey(e => e.Customer)
-                    .HasName("booking_pkey");
-
-                entity.ToTable("booking");
-
-                entity.Property(e => e.Customer)
-                    .ValueGeneratedNever()
-                    .HasColumnName("customer");
-
-                entity.Property(e => e.Accesslevel).HasColumnName("accesslevel");
-
-                entity.Property(e => e.Login)
-                    .HasMaxLength(30)
-                    .HasColumnName("login");
-
-                entity.Property(e => e.Password)
-                    .HasMaxLength(30)
-                    .HasColumnName("password");
-
-                entity.Property(e => e.Toursid).HasColumnName("toursid");
-
-                entity.HasOne(d => d.CustomerNavigation)
-                    .WithOne(p => p.Booking)
-                    .HasForeignKey<Booking>(d => d.Customer)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_bu");
-            });
-
             modelBuilder.Entity<Busticket>(entity =>
             {
                 entity.HasKey(e => e.Bustid)
@@ -91,9 +59,13 @@ namespace Tours
 
                 entity.Property(e => e.Bus).HasColumnName("bus");
 
-                entity.Property(e => e.Cityfrom).HasColumnName("cityfrom");
+                entity.Property(e => e.Cityfrom)
+                    .HasMaxLength(30)
+                    .HasColumnName("cityfrom");
 
-                entity.Property(e => e.Cityto).HasColumnName("cityto");
+                entity.Property(e => e.Cityto)
+                    .HasMaxLength(30)
+                    .HasColumnName("cityto");
 
                 entity.Property(e => e.Cost).HasColumnName("cost");
 
@@ -104,33 +76,6 @@ namespace Tours
                 entity.Property(e => e.Luggage).HasColumnName("luggage");
 
                 entity.Property(e => e.Seat).HasColumnName("seat");
-
-                entity.HasOne(d => d.CityfromNavigation)
-                    .WithMany(p => p.BusticketCityfromNavigations)
-                    .HasForeignKey(d => d.Cityfrom)
-                    .HasConstraintName("fk_bcf");
-
-                entity.HasOne(d => d.CitytoNavigation)
-                    .WithMany(p => p.BusticketCitytoNavigations)
-                    .HasForeignKey(d => d.Cityto)
-                    .HasConstraintName("fk_bct");
-            });
-
-            modelBuilder.Entity<City>(entity =>
-            {
-                entity.ToTable("city");
-
-                entity.HasIndex(e => e.Name, "uk_c")
-                    .IsUnique();
-
-                entity.Property(e => e.Cityid)
-                    .ValueGeneratedNever()
-                    .HasColumnName("cityid");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .HasColumnName("name");
             });
 
             modelBuilder.Entity<Food>(entity =>
@@ -166,7 +111,9 @@ namespace Tours
                     .ValueGeneratedNever()
                     .HasColumnName("hotelid");
 
-                entity.Property(e => e.City).HasColumnName("city");
+                entity.Property(e => e.City)
+                    .HasMaxLength(30)
+                    .HasColumnName("city");
 
                 entity.Property(e => e.Class).HasColumnName("class");
 
@@ -182,12 +129,6 @@ namespace Tours
                 entity.Property(e => e.Type)
                     .HasMaxLength(30)
                     .HasColumnName("type");
-
-                entity.HasOne(d => d.CityNavigation)
-                    .WithMany(p => p.Hotels)
-                    .HasForeignKey(d => d.City)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_hc");
             });
 
             modelBuilder.Entity<Planeticket>(entity =>
@@ -201,9 +142,13 @@ namespace Tours
                     .ValueGeneratedNever()
                     .HasColumnName("planetid");
 
-                entity.Property(e => e.Cityfrom).HasColumnName("cityfrom");
+                entity.Property(e => e.Cityfrom)
+                    .HasMaxLength(30)
+                    .HasColumnName("cityfrom");
 
-                entity.Property(e => e.Cityto).HasColumnName("cityto");
+                entity.Property(e => e.Cityto)
+                    .HasMaxLength(30)
+                    .HasColumnName("cityto");
 
                 entity.Property(e => e.Class).HasColumnName("class");
 
@@ -218,16 +163,6 @@ namespace Tours
                 entity.Property(e => e.Plane).HasColumnName("plane");
 
                 entity.Property(e => e.Seat).HasColumnName("seat");
-
-                entity.HasOne(d => d.CityfromNavigation)
-                    .WithMany(p => p.PlaneticketCityfromNavigations)
-                    .HasForeignKey(d => d.Cityfrom)
-                    .HasConstraintName("fk_pcf");
-
-                entity.HasOne(d => d.CitytoNavigation)
-                    .WithMany(p => p.PlaneticketCitytoNavigations)
-                    .HasForeignKey(d => d.Cityto)
-                    .HasConstraintName("fk_pct");
             });
 
             modelBuilder.Entity<Tour>(entity =>
@@ -288,9 +223,13 @@ namespace Tours
                     .HasColumnType("time without time zone")
                     .HasColumnName("arrivaltime");
 
-                entity.Property(e => e.Cityfrom).HasColumnName("cityfrom");
+                entity.Property(e => e.Cityfrom)
+                    .HasMaxLength(30)
+                    .HasColumnName("cityfrom");
 
-                entity.Property(e => e.Cityto).HasColumnName("cityto");
+                entity.Property(e => e.Cityto)
+                    .HasMaxLength(30)
+                    .HasColumnName("cityto");
 
                 entity.Property(e => e.Coach).HasColumnName("coach");
 
@@ -305,16 +244,6 @@ namespace Tours
                 entity.Property(e => e.Seat).HasColumnName("seat");
 
                 entity.Property(e => e.Train).HasColumnName("train");
-
-                entity.HasOne(d => d.CityfromNavigation)
-                    .WithMany(p => p.TrainticketCityfromNavigations)
-                    .HasForeignKey(d => d.Cityfrom)
-                    .HasConstraintName("fk_tcf");
-
-                entity.HasOne(d => d.CitytoNavigation)
-                    .WithMany(p => p.TrainticketCitytoNavigations)
-                    .HasForeignKey(d => d.Cityto)
-                    .HasConstraintName("fk_tct");
             });
 
             modelBuilder.Entity<Transfer>(entity =>
@@ -355,15 +284,17 @@ namespace Tours
                     .ValueGeneratedNever()
                     .HasColumnName("userid");
 
-                entity.Property(e => e.Name)
-                    .HasMaxLength(30)
-                    .HasColumnName("name");
+                entity.Property(e => e.Accesslevel).HasColumnName("accesslevel");
 
-                entity.Property(e => e.Surname)
+                entity.Property(e => e.Login)
                     .HasMaxLength(30)
-                    .HasColumnName("surname");
+                    .HasColumnName("login");
 
-                entity.Property(e => e.Year).HasColumnName("year");
+                entity.Property(e => e.Password)
+                    .HasMaxLength(30)
+                    .HasColumnName("password");
+
+                entity.Property(e => e.Toursid).HasColumnName("toursid");
             });
 
             OnModelCreatingPartial(modelBuilder);

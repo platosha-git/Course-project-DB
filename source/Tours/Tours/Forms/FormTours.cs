@@ -7,13 +7,14 @@ namespace Tours
     public partial class Form1 : Form
     {
         string TourCity = "";
-        DateTime DateBegin, DateEnd;
+
         public void AddColumnsTour()
         {
             TablesGrid.Rows.Clear();
             TablesGrid.Columns.Clear();
 
             TablesGrid.Columns.Add("TourID", "ИД тура");
+            TablesGrid.Columns.Add("City", "Город");
             TablesGrid.Columns.Add("Name", "Имя отеля");
             TablesGrid.Columns.Add("Type", "Категория отеля");
             TablesGrid.Columns.Add("Category", "Питание");
@@ -27,6 +28,9 @@ namespace Tours
         {
             AddColumnsTour();
 
+            DateTime DateBegin = TimePickerBegin.Value;
+            DateTime DateEnd = TimePickerEnd.Value;
+
             List<Tour> tours = guest.GetToursByDate(DateBegin, DateEnd);
             int numTours = tours.Count;
 
@@ -38,7 +42,7 @@ namespace Tours
                     Food curFood = guest.GetFoodByID(curTour.Food);
                     Hotel curHotel = guest.GetHotelByID(curTour.Hotel);
 
-                    TablesGrid.Rows.Add(curTour.Tourid, curHotel.Name, curHotel.Type, curFood.Category, curTour.Transfer, curTour.Cost,
+                    TablesGrid.Rows.Add(curTour.Tourid, curHotel.City, curHotel.Name, curHotel.Type, curFood.Category, curTour.Transfer, curTour.Cost,
                         curTour.Datebegin.Date.ToString("d"), curTour.Dateend.Date.ToString("d"));
                 }
             }
@@ -46,16 +50,6 @@ namespace Tours
             {
                 MessageBox.Show("Туры не найдены");
             }
-        }
-
-        private void TimePickerBegin_ValueChanged(object sender, System.EventArgs e)
-        {
-            DateBegin = TimePickerBegin.Value;
-        }
-
-        private void TimePickerEnd_ValueChanged(object sender, System.EventArgs e)
-        {
-            DateEnd = TimePickerEnd.Value;
         }
 
         private void TcomboBoxCity_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -158,18 +152,53 @@ namespace Tours
         /*--------------------------------------------------------------
          *                          Manager
          * -----------------------------------------------------------*/
+        int DelTourID = 0;
+
         private void TbuttonAdd_Click(object sender, System.EventArgs e)
+        {
+            FormManageTour formManage = new FormManageTour();
+            formManage.ShowDialog();
+            Tour ntour = formManage.ReturnTour();
+            
+            manager.AddTour(ntour);
+            MessageBox.Show("Тур был добавлен!");
+        }
+
+        private void TbuttonChTour_Click(object sender, System.EventArgs e)
         {
             DateTime dateB = new DateTime(2022, 03, 10);
             DateTime dateE = new DateTime(2022, 05, 01);
-            Tour ntour = new Tour { Tourid = 11, Food = 1, Hotel = 2, Transfer = 3, Cost = 4, Datebegin = dateB, Dateend = dateE };
+            Tour chtour = new Tour { Tourid = 11, Food = 1, Hotel = 2, Transfer = 3, Cost = 4, Datebegin = dateB, Dateend = dateE };
 
-            FormManageTour formManage = new FormManageTour(ntour);
+            FormManageTour formManage = new FormManageTour();
             formManage.ShowDialog();
-            ntour = formManage.ReturnTour();
-            
-            manager.AddTour(ntour);
-            MessageBox.Show("Тур был добавлен");
+            chtour = formManage.ReturnTour();
+
+            manager.UpdateTour(chtour);
+            MessageBox.Show("Тур был обновлен!");
+        }
+
+        private void TbuttonDelTour_Click(object sender, System.EventArgs e)
+        {
+            Tour tour = manager.GetTourByID(DelTourID);
+            if (tour != null)
+            {
+                manager.DeleteTourByID(DelTourID);
+                MessageBox.Show("Тур " + DelTourID + " был удален!");
+            }
+            else
+            {
+                MessageBox.Show("Указанного тура не найдено!");
+            }
+        }
+
+        private void TtextBoxDelTour_TextChanged(object sender, System.EventArgs e)
+        {
+            int dTID = Convert.ToInt32(TtextBoxDelTour.Text);
+            if (dTID != 0)
+            {
+                DelTourID = dTID;
+            }
         }
     }
 }

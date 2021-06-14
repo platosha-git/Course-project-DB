@@ -29,12 +29,8 @@ namespace Tours
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormManageTour));
             this.TbuttonAd = new System.Windows.Forms.Button();
-            this.MTtextBox1 = new System.Windows.Forms.TextBox();
-            this.MTtextBox2 = new System.Windows.Forms.TextBox();
-            this.MTtextBox3 = new System.Windows.Forms.TextBox();
-            this.MTtextBox4 = new System.Windows.Forms.TextBox();
-            this.MTtextBox5 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.labelTID = new System.Windows.Forms.Label();
@@ -44,73 +40,39 @@ namespace Tours
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // TbuttonAd
             // 
-            this.TbuttonAd.Location = new System.Drawing.Point(184, 148);
+            this.TbuttonAd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.TbuttonAd.Location = new System.Drawing.Point(149, 128);
             this.TbuttonAd.Name = "TbuttonAd";
-            this.TbuttonAd.Size = new System.Drawing.Size(204, 29);
+            this.TbuttonAd.Size = new System.Drawing.Size(222, 35);
             this.TbuttonAd.TabIndex = 0;
             this.TbuttonAd.Text = "Изменить";
-            this.TbuttonAd.UseVisualStyleBackColor = true;
+            this.TbuttonAd.UseVisualStyleBackColor = false;
             this.TbuttonAd.Click += new System.EventHandler(this.TbuttonAd_Click);
-            // 
-            // MTtextBox1
-            // 
-            this.MTtextBox1.Location = new System.Drawing.Point(12, 74);
-            this.MTtextBox1.Name = "MTtextBox1";
-            this.MTtextBox1.Size = new System.Drawing.Size(37, 27);
-            this.MTtextBox1.TabIndex = 1;
-            this.MTtextBox1.TextChanged += new System.EventHandler(this.MTtextBox1_TextChanged);
-            // 
-            // MTtextBox2
-            // 
-            this.MTtextBox2.Location = new System.Drawing.Point(66, 74);
-            this.MTtextBox2.Name = "MTtextBox2";
-            this.MTtextBox2.Size = new System.Drawing.Size(37, 27);
-            this.MTtextBox2.TabIndex = 2;
-            this.MTtextBox2.TextChanged += new System.EventHandler(this.MTtextBox2_TextChanged);
-            // 
-            // MTtextBox3
-            // 
-            this.MTtextBox3.Location = new System.Drawing.Point(126, 74);
-            this.MTtextBox3.Name = "MTtextBox3";
-            this.MTtextBox3.Size = new System.Drawing.Size(37, 27);
-            this.MTtextBox3.TabIndex = 3;
-            this.MTtextBox3.TextChanged += new System.EventHandler(this.MTtextBox3_TextChanged);
-            // 
-            // MTtextBox4
-            // 
-            this.MTtextBox4.Location = new System.Drawing.Point(199, 74);
-            this.MTtextBox4.Name = "MTtextBox4";
-            this.MTtextBox4.Size = new System.Drawing.Size(37, 27);
-            this.MTtextBox4.TabIndex = 4;
-            this.MTtextBox4.TextChanged += new System.EventHandler(this.MTtextBox4_TextChanged);
-            // 
-            // MTtextBox5
-            // 
-            this.MTtextBox5.Location = new System.Drawing.Point(274, 74);
-            this.MTtextBox5.Name = "MTtextBox5";
-            this.MTtextBox5.Size = new System.Drawing.Size(65, 27);
-            this.MTtextBox5.TabIndex = 5;
-            this.MTtextBox5.TextChanged += new System.EventHandler(this.MTtextBox5_TextChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(354, 74);
+            this.dateTimePicker1.Location = new System.Drawing.Point(354, 77);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(95, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(94, 27);
             this.dateTimePicker1.TabIndex = 6;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(455, 74);
+            this.dateTimePicker2.Location = new System.Drawing.Point(454, 77);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(95, 27);
+            this.dateTimePicker2.Size = new System.Drawing.Size(87, 27);
             this.dateTimePicker2.TabIndex = 7;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // labelTID
             // 
@@ -175,11 +137,65 @@ namespace Tours
             this.label6.TabIndex = 14;
             this.label6.Text = "Дата конца";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, -3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(576, 207);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 74);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(33, 30);
+            this.richTextBox1.TabIndex = 16;
+            this.richTextBox1.Text = "";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(51, 74);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(69, 30);
+            this.richTextBox2.TabIndex = 17;
+            this.richTextBox2.Text = "";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(126, 74);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(50, 30);
+            this.richTextBox3.TabIndex = 18;
+            this.richTextBox3.Text = "";
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.Location = new System.Drawing.Point(182, 75);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(75, 29);
+            this.richTextBox4.TabIndex = 19;
+            this.richTextBox4.Text = "";
+            // 
+            // richTextBox5
+            // 
+            this.richTextBox5.Location = new System.Drawing.Point(265, 74);
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.Size = new System.Drawing.Size(83, 30);
+            this.richTextBox5.TabIndex = 20;
+            this.richTextBox5.Text = "";
+            // 
             // FormManageTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 204);
+            this.ClientSize = new System.Drawing.Size(550, 186);
+            this.Controls.Add(this.richTextBox5);
+            this.Controls.Add(this.richTextBox4);
+            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -189,14 +205,11 @@ namespace Tours
             this.Controls.Add(this.labelTID);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.MTtextBox5);
-            this.Controls.Add(this.MTtextBox4);
-            this.Controls.Add(this.MTtextBox3);
-            this.Controls.Add(this.MTtextBox2);
-            this.Controls.Add(this.MTtextBox1);
             this.Controls.Add(this.TbuttonAd);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "FormManageTour";
             this.Text = "FormManageTour";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,11 +218,6 @@ namespace Tours
         #endregion
 
         private System.Windows.Forms.Button TbuttonAd;
-        private System.Windows.Forms.TextBox MTtextBox1;
-        private System.Windows.Forms.TextBox MTtextBox2;
-        private System.Windows.Forms.TextBox MTtextBox3;
-        private System.Windows.Forms.TextBox MTtextBox4;
-        private System.Windows.Forms.TextBox MTtextBox5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label labelTID;
@@ -219,5 +227,11 @@ namespace Tours
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.RichTextBox richTextBox5;
     }
 }

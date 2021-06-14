@@ -10,7 +10,7 @@ namespace Tours
     {
         string Login = "", Password = "";
         private readonly ToursContext db;
-        IBookingRepository bookingRep;
+        IUsersRepository bookingRep;
 
         public FormAuth()
         {
@@ -21,7 +21,7 @@ namespace Tours
                 .CreateLogger();
 
             db = new ToursContext(ConfigManager.GetConnectionString(AccessLevel.Manager));
-            bookingRep = new BookingRepository(db, log);
+            bookingRep = new UsersRepository(db, log);
         }
 
         private void ArichTextBoxLogin_TextChanged(object sender, EventArgs e)
@@ -36,11 +36,11 @@ namespace Tours
 
         private void AbuttonAuth_Click(object sender, EventArgs e)
         {
-            Booking user = bookingRep.GetUserByLP(Login, Password);
+            User user = bookingRep.GetUserByLP(Login, Password);
             if (user != null)
             {
                 int accessLvl = (int)user.Accesslevel;
-                int userID = user.Customer;
+                int userID = user.Userid;
                 Form1 userForm = new Form1((AccessLevel)accessLvl, userID);
                 userForm.Show();
             }

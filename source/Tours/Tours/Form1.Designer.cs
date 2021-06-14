@@ -41,6 +41,9 @@ namespace Tours
             this.tabSelect = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.TgroupBoxAdd = new System.Windows.Forms.GroupBox();
+            this.TbuttonChTour = new System.Windows.Forms.Button();
+            this.TtextBoxDelTour = new System.Windows.Forms.TextBox();
+            this.TbuttonDelTour = new System.Windows.Forms.Button();
             this.TbuttonAdd = new System.Windows.Forms.Button();
             this.TgroupBoxBook = new System.Windows.Forms.GroupBox();
             this.TbuttonDelBook = new System.Windows.Forms.Button();
@@ -68,7 +71,6 @@ namespace Tours
             this.FoodLbl1 = new System.Windows.Forms.Label();
             this.FcomboBoxCategory = new System.Windows.Forms.ComboBox();
             this.AllFood = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TablesGrid)).BeginInit();
             this.ToursParams.SuspendLayout();
             this.tabSelect.SuspendLayout();
@@ -123,6 +125,16 @@ namespace Tours
             // TcomboBoxCity
             // 
             this.TcomboBoxCity.FormattingEnabled = true;
+            this.TcomboBoxCity.Items.AddRange(new object[] {
+            "",
+            "Москва",
+            "Питер",
+            "Сочи",
+            "Самара",
+            "Воронеж",
+            "Казань",
+            "Челябинск",
+            "Владивосток"});
             this.TcomboBoxCity.Location = new System.Drawing.Point(106, 39);
             this.TcomboBoxCity.Name = "TcomboBoxCity";
             this.TcomboBoxCity.Size = new System.Drawing.Size(178, 28);
@@ -144,7 +156,7 @@ namespace Tours
             this.TimePickerEnd.Name = "TimePickerEnd";
             this.TimePickerEnd.Size = new System.Drawing.Size(178, 27);
             this.TimePickerEnd.TabIndex = 8;
-            this.TimePickerEnd.ValueChanged += new System.EventHandler(this.TimePickerEnd_ValueChanged);
+            this.TimePickerEnd.Value = new System.DateTime(2022, 12, 1, 0, 0, 0, 0);
             // 
             // lblDateEnd
             // 
@@ -172,7 +184,7 @@ namespace Tours
             this.TimePickerBegin.Name = "TimePickerBegin";
             this.TimePickerBegin.Size = new System.Drawing.Size(178, 27);
             this.TimePickerBegin.TabIndex = 5;
-            this.TimePickerBegin.ValueChanged += new System.EventHandler(this.TimePickerBegin_ValueChanged);
+            this.TimePickerBegin.Value = new System.DateTime(2019, 12, 1, 0, 0, 0, 0);
             // 
             // tabSelect
             // 
@@ -201,14 +213,44 @@ namespace Tours
             // TgroupBoxAdd
             // 
             this.TgroupBoxAdd.BackColor = System.Drawing.Color.DarkGray;
-            this.TgroupBoxAdd.Controls.Add(this.button1);
+            this.TgroupBoxAdd.Controls.Add(this.TbuttonChTour);
+            this.TgroupBoxAdd.Controls.Add(this.TtextBoxDelTour);
+            this.TgroupBoxAdd.Controls.Add(this.TbuttonDelTour);
             this.TgroupBoxAdd.Controls.Add(this.TbuttonAdd);
             this.TgroupBoxAdd.Location = new System.Drawing.Point(14, 435);
             this.TgroupBoxAdd.Name = "TgroupBoxAdd";
-            this.TgroupBoxAdd.Size = new System.Drawing.Size(304, 125);
+            this.TgroupBoxAdd.Size = new System.Drawing.Size(304, 133);
             this.TgroupBoxAdd.TabIndex = 5;
             this.TgroupBoxAdd.TabStop = false;
             this.TgroupBoxAdd.Text = "Управление турами";
+            // 
+            // TbuttonChTour
+            // 
+            this.TbuttonChTour.Location = new System.Drawing.Point(8, 62);
+            this.TbuttonChTour.Name = "TbuttonChTour";
+            this.TbuttonChTour.Size = new System.Drawing.Size(290, 29);
+            this.TbuttonChTour.TabIndex = 4;
+            this.TbuttonChTour.Text = "Изменить тур";
+            this.TbuttonChTour.UseVisualStyleBackColor = true;
+            this.TbuttonChTour.Click += new System.EventHandler(this.TbuttonChTour_Click);
+            // 
+            // TtextBoxDelTour
+            // 
+            this.TtextBoxDelTour.Location = new System.Drawing.Point(8, 95);
+            this.TtextBoxDelTour.Name = "TtextBoxDelTour";
+            this.TtextBoxDelTour.Size = new System.Drawing.Size(72, 27);
+            this.TtextBoxDelTour.TabIndex = 2;
+            this.TtextBoxDelTour.TextChanged += new System.EventHandler(this.TtextBoxDelTour_TextChanged);
+            // 
+            // TbuttonDelTour
+            // 
+            this.TbuttonDelTour.Location = new System.Drawing.Point(98, 94);
+            this.TbuttonDelTour.Name = "TbuttonDelTour";
+            this.TbuttonDelTour.Size = new System.Drawing.Size(200, 29);
+            this.TbuttonDelTour.TabIndex = 1;
+            this.TbuttonDelTour.Text = "Удалить тур";
+            this.TbuttonDelTour.UseVisualStyleBackColor = true;
+            this.TbuttonDelTour.Click += new System.EventHandler(this.TbuttonDelTour_Click);
             // 
             // TbuttonAdd
             // 
@@ -386,13 +428,15 @@ namespace Tours
             // 
             this.HcomboBoxType.FormattingEnabled = true;
             this.HcomboBoxType.Items.AddRange(new object[] {
-            "",
-            "Mini",
-            "Resort",
-            "B&B",
-            "Apart",
-            "Guest house",
-            "Hostel"});
+            "Отель",
+            "Апартамент",
+            "Хостел",
+            "Гостевой дом",
+            "Мотель",
+            "Вила",
+            "Курортный отель",
+            "Кемпинг",
+            "Постель и завтрак"});
             this.HcomboBoxType.Location = new System.Drawing.Point(148, 61);
             this.HcomboBoxType.Name = "HcomboBoxType";
             this.HcomboBoxType.Size = new System.Drawing.Size(151, 28);
@@ -420,10 +464,21 @@ namespace Tours
             // HcomboBoxCity
             // 
             this.HcomboBoxCity.FormattingEnabled = true;
+            this.HcomboBoxCity.Items.AddRange(new object[] {
+            "",
+            "Москва",
+            "Питер",
+            "Сочи",
+            "Самара",
+            "Воронеж",
+            "Казань",
+            "Челябинск",
+            "Владивосток"});
             this.HcomboBoxCity.Location = new System.Drawing.Point(148, 26);
             this.HcomboBoxCity.Name = "HcomboBoxCity";
             this.HcomboBoxCity.Size = new System.Drawing.Size(151, 28);
             this.HcomboBoxCity.TabIndex = 2;
+            this.HcomboBoxCity.SelectedIndexChanged += new System.EventHandler(this.HcomboBoxCity_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -501,14 +556,14 @@ namespace Tours
             // 
             this.FcomboBoxCategory.FormattingEnabled = true;
             this.FcomboBoxCategory.Items.AddRange(new object[] {
-            "",
-            "BB",
-            "HB",
-            "AI+",
-            "FB+",
-            "HB+",
-            "UAI",
-            "FB"});
+            "Завтрак",
+            "Полупансион",
+            "Полный пансион",
+            "Полный пансион+",
+            "Все включено",
+            "Континентальный завтрак",
+            "Английский завтрак",
+            "Американский завтрак"});
             this.FcomboBoxCategory.Location = new System.Drawing.Point(109, 31);
             this.FcomboBoxCategory.Name = "FcomboBoxCategory";
             this.FcomboBoxCategory.Size = new System.Drawing.Size(189, 28);
@@ -525,15 +580,6 @@ namespace Tours
             this.AllFood.UseVisualStyleBackColor = true;
             this.AllFood.Click += new System.EventHandler(this.AllFood_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(7, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(291, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -549,6 +595,7 @@ namespace Tours
             this.tabSelect.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.TgroupBoxAdd.ResumeLayout(false);
+            this.TgroupBoxAdd.PerformLayout();
             this.TgroupBoxBook.ResumeLayout(false);
             this.TgroupBoxBook.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -603,7 +650,9 @@ namespace Tours
         private System.Windows.Forms.Button TbuttonDelBook;
         private System.Windows.Forms.GroupBox TgroupBoxAdd;
         private System.Windows.Forms.Button TbuttonAdd;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button TbuttonDelTour;
+        private System.Windows.Forms.TextBox TtextBoxDelTour;
+        private System.Windows.Forms.Button TbuttonChTour;
     }
 }
 

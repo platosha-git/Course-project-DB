@@ -5,12 +5,12 @@ namespace Tours.ComponentsBL
 {
     public class TouristController : UserController
     {
-        protected IBookingRepository bookingRepository;
+        protected IUsersRepository bookingRepository;
         protected IUsersRepository usersRepository;
 
         public TouristController(ITourRepository tourRep, IHotelRepository hotelRep, IFoodRepository foodRep,
                                 ITransferRepository transferRep, IBusRepository busRep, IPlaneRepository planeRep, ITrainRepository trainRep,
-                                IBookingRepository bookingRep, IUsersRepository usersRep) :
+                                IUsersRepository bookingRep, IUsersRepository usersRep) :
             base(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep)
         {
             bookingRepository = bookingRep;
@@ -39,7 +39,7 @@ namespace Tours.ComponentsBL
 
         public void BookTour(int TourID, int userID)
         {
-            Booking bk = bookingRepository.FindByID(userID);
+            User bk = bookingRepository.FindByID(userID);
             int[] ToursID = bk.Toursid;
             int size = ToursID.Length;
 
@@ -68,7 +68,7 @@ namespace Tours.ComponentsBL
 
         public void RemoveTour(int TourID, int userID)
         {
-            Booking bk = bookingRepository.FindByID(userID);
+            User bk = bookingRepository.FindByID(userID);
             int[] ToursID = bk.Toursid;
             int size = ToursID.Length;
 
@@ -93,20 +93,6 @@ namespace Tours.ComponentsBL
         public User GetAllUserInfo(int userID)
         {
             return usersRepository.FindByID(userID);
-        }
-
-        public void UpdateSurname(string surname, int userID)
-        {
-            User user = usersRepository.FindByID(userID);
-            user.Surname = surname;
-            usersRepository.Update(user);
-        }
-
-        public void UpdateYear(int year, int userID)
-        {
-            User user = usersRepository.FindByID(userID);
-            user.Year = year;
-            usersRepository.Update(user);
         }
     }
 }

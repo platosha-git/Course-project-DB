@@ -77,6 +77,11 @@ namespace Tours
             }
         }
 
+        private void HcomboBoxCity_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            HotelCity = HcomboBoxCity.SelectedItem.ToString();
+        }
+
         private void HcomboBoxType_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             Type = HcomboBoxType.SelectedItem.ToString();
@@ -94,6 +99,7 @@ namespace Tours
 
         private void HbuttonClearParams_Click(object sender, System.EventArgs e)
         {
+            HcomboBoxType.SelectedItem = "";
             HcheckSwimPool.Checked = false;
             FnumericUDStars.Value = 5;
             HcomboBoxType.SelectedItem = "";

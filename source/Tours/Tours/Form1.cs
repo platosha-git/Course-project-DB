@@ -38,7 +38,7 @@ namespace Tours
             ITrainRepository trainRep = new TrainRepository(db, log);
 
             IUsersRepository usersRep = new UsersRepository(db, log);
-            IBookingRepository bookingRep = new BookingRepository(db, log);
+            IUsersRepository bookingRep = new UsersRepository(db, log);
 
             guest = new GuestController(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep);
             tourist = new TouristController(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep, bookingRep, usersRep);

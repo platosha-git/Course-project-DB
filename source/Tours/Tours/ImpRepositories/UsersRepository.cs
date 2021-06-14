@@ -29,17 +29,6 @@ namespace Tours.ImpRepositories
 
         public void Add(User obj)
         {
-            try
-            {
-                obj.Userid = db.Users.Count() + 1;
-                db.Users.Add(obj);
-                db.SaveChanges();
-                logger.Information("+UsersRep : User {Number} was added to Users", obj.Userid);
-            }
-            catch (Exception err)
-            {
-                logger.Error(err.Message, "+UsersRep : Error trying to add user to Users");
-            }
         }
 
         public void Update(User obj)
@@ -48,11 +37,11 @@ namespace Tours.ImpRepositories
             {
                 db.Users.Update(obj);
                 db.SaveChanges();
-                logger.Information("+UsersRep : User {Number} was updated at Users", obj.Userid);
+                logger.Information("+BookingRep : Booking {Number} was updated at Bookings", obj.Userid);
             }
             catch (Exception err)
             {
-                logger.Error(err.Message, "+UsersRep : Error trying to update user at Users");
+                logger.Error(err.Message, "+BookingRep : Error trying to update booking at Bookings");
             }
         }
 
@@ -60,30 +49,35 @@ namespace Tours.ImpRepositories
         {
             try
             {
-                List<User> allUsers = FindAll();
-                db.Users.RemoveRange(allUsers);
+                List<User> allBookings = FindAll();
+                db.Users.RemoveRange(allBookings);
                 db.SaveChanges();
-                logger.Information("+UsersRep : All users were deleted from Users");
+                logger.Information("+BookingRep : All bookings were deleted from Bookings");
             }
             catch (Exception err)
             {
-                logger.Error(err.Message, "+UsersRep : Error trying to delete all users from Users");
+                logger.Error(err.Message, "+BookingRep : Error trying to delete all bookings from Bookings");
             }
         }
 
         public void DeleteByID(int id)
         {
-            try
+        }
+
+        public User GetUserByLP(string login, string password)
+        {
+            IQueryable<User> users = db.Users.Where(needed => needed.Login.Equals(login) &&
+                                                                   needed.Password.Equals(password));
+            if (users.Count() != 0)
             {
-                User user = FindByID(id);
-                db.Users.Remove(user);
-                db.SaveChanges();
-                logger.Information("+UsersRep : User {Number} was deleted from Users");
+                return users.First();
             }
-            catch (Exception err)
-            {
-                logger.Error(err.Message, "+UsersRep : Error trying to delete user {Number} from Users", id);
-            }
+            return null;
+        }
+
+        public int[] GetBookToursByID(int id)
+        {
+            return FindByID(id).Toursid;
         }
 
         public void Dispose()

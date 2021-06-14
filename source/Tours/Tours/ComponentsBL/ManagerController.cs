@@ -5,12 +5,12 @@ namespace Tours.ComponentsBL
 {
     public class ManagerController : UserController
     {
-        protected IBookingRepository bookingRepository;
+        protected IUsersRepository bookingRepository;
         protected IUsersRepository usersRepository;
         
         public ManagerController(ITourRepository tourRep, IHotelRepository hotelRep, IFoodRepository foodRep,
                                 ITransferRepository transferRep, IBusRepository busRep, IPlaneRepository planeRep, ITrainRepository trainRep,
-                                IBookingRepository bookingRep, IUsersRepository usersRep) :
+                                IUsersRepository bookingRep, IUsersRepository usersRep) :
             base(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep)
         {
             bookingRepository = bookingRep;
@@ -20,6 +20,10 @@ namespace Tours.ComponentsBL
         public List<User> GetAllUsers()
         {
             return usersRepository.FindAll();
+        }
+        public Tour GetTourByID(int tourID)
+        {
+            return tourRepository.FindByID(tourID);
         }
 
         /*--------------------------------------------------------------
