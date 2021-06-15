@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Tours.Repositories;
 using Serilog.Core;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tours.ImpRepositories
 {
@@ -46,7 +47,13 @@ namespace Tours.ImpRepositories
         {
             try
             {
-                db.Tours.Update(obj);
+                Tour uTour = FindByID(obj.Tourid);
+                uTour.Food = obj.Food; uTour.Hotel = obj.Hotel; uTour.Transfer = obj.Transfer;
+                uTour.Cost = obj.Cost;
+                uTour.Datebegin = obj.Datebegin;
+                uTour.Dateend = obj.Dateend;
+
+                db.Tours.Update(uTour);
                 db.SaveChanges();
                 logger.Information("+TourRep : Tour {Number} was updated at Tours", obj.Tourid);
             }
@@ -89,6 +96,12 @@ namespace Tours.ImpRepositories
         public List<Tour> FindTourByDate(DateTime b, DateTime e)
         {
             IQueryable<Tour> tours = db.Tours.Where(needed => needed.Datebegin >= b && needed.Dateend <= e);
+            return tours.ToList();
+        }
+
+        public List<Tour> FindToursByHotel(int hotelID)
+        {
+            IQueryable<Tour> tours = db.Tours.Where(needed => needed.Hotel == hotelID);
             return tours.ToList();
         }
 

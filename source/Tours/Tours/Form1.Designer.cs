@@ -52,6 +52,13 @@ namespace Tours
             this.TbuttonBook = new System.Windows.Forms.Button();
             this.TbuttonShowBook = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.HgroupBoxManage = new System.Windows.Forms.GroupBox();
+            this.HbuttonChange = new System.Windows.Forms.Button();
+            this.HtextBoxDelHotel = new System.Windows.Forms.TextBox();
+            this.HbuttonDelete = new System.Windows.Forms.Button();
+            this.HbuttonAdd = new System.Windows.Forms.Button();
+            this.HgroupBoxBook = new System.Windows.Forms.GroupBox();
+            this.HbuttonShowBook = new System.Windows.Forms.Button();
             this.HotelParams = new System.Windows.Forms.GroupBox();
             this.HbuttonClearParams = new System.Windows.Forms.Button();
             this.AllHotels = new System.Windows.Forms.Button();
@@ -64,6 +71,8 @@ namespace Tours
             this.label1 = new System.Windows.Forms.Label();
             this.HcomboBoxCity = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.FgroupBoxBook = new System.Windows.Forms.GroupBox();
+            this.FbuttonShowBook = new System.Windows.Forms.Button();
             this.FoodParams = new System.Windows.Forms.GroupBox();
             this.FcheckBar = new System.Windows.Forms.CheckBox();
             this.FcheckChildMenu = new System.Windows.Forms.CheckBox();
@@ -71,6 +80,11 @@ namespace Tours
             this.FoodLbl1 = new System.Windows.Forms.Label();
             this.FcomboBoxCategory = new System.Windows.Forms.ComboBox();
             this.AllFood = new System.Windows.Forms.Button();
+            this.FgroupBoxManage = new System.Windows.Forms.GroupBox();
+            this.FbuttonChange = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FbuttonDelete = new System.Windows.Forms.Button();
+            this.FbuttonAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TablesGrid)).BeginInit();
             this.ToursParams.SuspendLayout();
             this.tabSelect.SuspendLayout();
@@ -78,10 +92,14 @@ namespace Tours
             this.TgroupBoxAdd.SuspendLayout();
             this.TgroupBoxBook.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.HgroupBoxManage.SuspendLayout();
+            this.HgroupBoxBook.SuspendLayout();
             this.HotelParams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FnumericUDStars)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.FgroupBoxBook.SuspendLayout();
             this.FoodParams.SuspendLayout();
+            this.FgroupBoxManage.SuspendLayout();
             this.SuspendLayout();
             // 
             // TablesGrid
@@ -97,7 +115,7 @@ namespace Tours
             // 
             // AllTours
             // 
-            this.AllTours.Location = new System.Drawing.Point(6, 183);
+            this.AllTours.Location = new System.Drawing.Point(6, 154);
             this.AllTours.Name = "AllTours";
             this.AllTours.Size = new System.Drawing.Size(292, 29);
             this.AllTours.TabIndex = 1;
@@ -117,7 +135,7 @@ namespace Tours
             this.ToursParams.Controls.Add(this.AllTours);
             this.ToursParams.Location = new System.Drawing.Point(14, 15);
             this.ToursParams.Name = "ToursParams";
-            this.ToursParams.Size = new System.Drawing.Size(304, 218);
+            this.ToursParams.Size = new System.Drawing.Size(304, 193);
             this.ToursParams.TabIndex = 3;
             this.ToursParams.TabStop = false;
             this.ToursParams.Text = "Поиск туров";
@@ -135,7 +153,7 @@ namespace Tours
             "Казань",
             "Челябинск",
             "Владивосток"});
-            this.TcomboBoxCity.Location = new System.Drawing.Point(106, 39);
+            this.TcomboBoxCity.Location = new System.Drawing.Point(106, 31);
             this.TcomboBoxCity.Name = "TcomboBoxCity";
             this.TcomboBoxCity.Size = new System.Drawing.Size(178, 28);
             this.TcomboBoxCity.TabIndex = 11;
@@ -144,7 +162,7 @@ namespace Tours
             // TlabelCity
             // 
             this.TlabelCity.AutoSize = true;
-            this.TlabelCity.Location = new System.Drawing.Point(23, 42);
+            this.TlabelCity.Location = new System.Drawing.Point(28, 34);
             this.TlabelCity.Name = "TlabelCity";
             this.TlabelCity.Size = new System.Drawing.Size(51, 20);
             this.TlabelCity.TabIndex = 10;
@@ -152,7 +170,7 @@ namespace Tours
             // 
             // TimePickerEnd
             // 
-            this.TimePickerEnd.Location = new System.Drawing.Point(106, 123);
+            this.TimePickerEnd.Location = new System.Drawing.Point(106, 109);
             this.TimePickerEnd.Name = "TimePickerEnd";
             this.TimePickerEnd.Size = new System.Drawing.Size(178, 27);
             this.TimePickerEnd.TabIndex = 8;
@@ -162,7 +180,7 @@ namespace Tours
             // 
             this.lblDateEnd.AutoSize = true;
             this.lblDateEnd.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.lblDateEnd.Location = new System.Drawing.Point(5, 128);
+            this.lblDateEnd.Location = new System.Drawing.Point(6, 114);
             this.lblDateEnd.Name = "lblDateEnd";
             this.lblDateEnd.Size = new System.Drawing.Size(95, 20);
             this.lblDateEnd.TabIndex = 7;
@@ -172,7 +190,7 @@ namespace Tours
             // 
             this.lblDateBegin.AutoSize = true;
             this.lblDateBegin.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.lblDateBegin.Location = new System.Drawing.Point(6, 93);
+            this.lblDateBegin.Location = new System.Drawing.Point(8, 81);
             this.lblDateBegin.Name = "lblDateBegin";
             this.lblDateBegin.Size = new System.Drawing.Size(94, 20);
             this.lblDateBegin.TabIndex = 6;
@@ -180,7 +198,7 @@ namespace Tours
             // 
             // TimePickerBegin
             // 
-            this.TimePickerBegin.Location = new System.Drawing.Point(106, 88);
+            this.TimePickerBegin.Location = new System.Drawing.Point(106, 76);
             this.TimePickerBegin.Name = "TimePickerBegin";
             this.TimePickerBegin.Size = new System.Drawing.Size(178, 27);
             this.TimePickerBegin.TabIndex = 5;
@@ -222,7 +240,7 @@ namespace Tours
             this.TgroupBoxAdd.Size = new System.Drawing.Size(304, 133);
             this.TgroupBoxAdd.TabIndex = 5;
             this.TgroupBoxAdd.TabStop = false;
-            this.TgroupBoxAdd.Text = "Управление турами";
+            this.TgroupBoxAdd.Text = "Изменение туров";
             // 
             // TbuttonChTour
             // 
@@ -240,7 +258,7 @@ namespace Tours
             this.TtextBoxDelTour.Name = "TtextBoxDelTour";
             this.TtextBoxDelTour.Size = new System.Drawing.Size(72, 27);
             this.TtextBoxDelTour.TabIndex = 2;
-            this.TtextBoxDelTour.TextChanged += new System.EventHandler(this.TtextBoxDelTour_TextChanged);
+            this.TtextBoxDelTour.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TbuttonDelTour
             // 
@@ -270,7 +288,7 @@ namespace Tours
             this.TgroupBoxBook.Controls.Add(this.TtextBoxBookTour);
             this.TgroupBoxBook.Controls.Add(this.TbuttonBook);
             this.TgroupBoxBook.Controls.Add(this.TbuttonShowBook);
-            this.TgroupBoxBook.Location = new System.Drawing.Point(14, 260);
+            this.TgroupBoxBook.Location = new System.Drawing.Point(14, 249);
             this.TgroupBoxBook.Name = "TgroupBoxBook";
             this.TgroupBoxBook.Size = new System.Drawing.Size(304, 144);
             this.TgroupBoxBook.TabIndex = 4;
@@ -294,7 +312,6 @@ namespace Tours
             this.TtextBoxDeleteBook.Size = new System.Drawing.Size(74, 27);
             this.TtextBoxDeleteBook.TabIndex = 3;
             this.TtextBoxDeleteBook.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TtextBoxDeleteBook.TextChanged += new System.EventHandler(this.TtextBoxDelteBook_TextChanged);
             // 
             // TtextBoxBookTour
             // 
@@ -303,7 +320,6 @@ namespace Tours
             this.TtextBoxBookTour.Size = new System.Drawing.Size(73, 27);
             this.TtextBoxBookTour.TabIndex = 2;
             this.TtextBoxBookTour.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TtextBoxBookTour.TextChanged += new System.EventHandler(this.TtextBoxBookTour_TextChanged);
             // 
             // TbuttonBook
             // 
@@ -327,6 +343,8 @@ namespace Tours
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.HgroupBoxManage);
+            this.tabPage3.Controls.Add(this.HgroupBoxBook);
             this.tabPage3.Controls.Add(this.HotelParams);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
@@ -334,6 +352,79 @@ namespace Tours
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Отели";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // HgroupBoxManage
+            // 
+            this.HgroupBoxManage.BackColor = System.Drawing.Color.DarkGray;
+            this.HgroupBoxManage.Controls.Add(this.HbuttonChange);
+            this.HgroupBoxManage.Controls.Add(this.HtextBoxDelHotel);
+            this.HgroupBoxManage.Controls.Add(this.HbuttonDelete);
+            this.HgroupBoxManage.Controls.Add(this.HbuttonAdd);
+            this.HgroupBoxManage.Location = new System.Drawing.Point(13, 402);
+            this.HgroupBoxManage.Name = "HgroupBoxManage";
+            this.HgroupBoxManage.Size = new System.Drawing.Size(304, 133);
+            this.HgroupBoxManage.TabIndex = 6;
+            this.HgroupBoxManage.TabStop = false;
+            this.HgroupBoxManage.Text = "Изменение отелей";
+            // 
+            // HbuttonChange
+            // 
+            this.HbuttonChange.Location = new System.Drawing.Point(8, 62);
+            this.HbuttonChange.Name = "HbuttonChange";
+            this.HbuttonChange.Size = new System.Drawing.Size(290, 29);
+            this.HbuttonChange.TabIndex = 4;
+            this.HbuttonChange.Text = "Изменить отель";
+            this.HbuttonChange.UseVisualStyleBackColor = true;
+            this.HbuttonChange.Click += new System.EventHandler(this.HbuttonChange_Click);
+            // 
+            // HtextBoxDelHotel
+            // 
+            this.HtextBoxDelHotel.Location = new System.Drawing.Point(8, 95);
+            this.HtextBoxDelHotel.Name = "HtextBoxDelHotel";
+            this.HtextBoxDelHotel.Size = new System.Drawing.Size(72, 27);
+            this.HtextBoxDelHotel.TabIndex = 2;
+            this.HtextBoxDelHotel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // HbuttonDelete
+            // 
+            this.HbuttonDelete.Location = new System.Drawing.Point(98, 94);
+            this.HbuttonDelete.Name = "HbuttonDelete";
+            this.HbuttonDelete.Size = new System.Drawing.Size(200, 29);
+            this.HbuttonDelete.TabIndex = 1;
+            this.HbuttonDelete.Text = "Удалить отель";
+            this.HbuttonDelete.UseVisualStyleBackColor = true;
+            this.HbuttonDelete.Click += new System.EventHandler(this.HbuttonDelete_Click);
+            // 
+            // HbuttonAdd
+            // 
+            this.HbuttonAdd.Location = new System.Drawing.Point(6, 27);
+            this.HbuttonAdd.Name = "HbuttonAdd";
+            this.HbuttonAdd.Size = new System.Drawing.Size(292, 29);
+            this.HbuttonAdd.TabIndex = 0;
+            this.HbuttonAdd.Text = "Добавить отель";
+            this.HbuttonAdd.UseVisualStyleBackColor = true;
+            this.HbuttonAdd.Click += new System.EventHandler(this.HbuttonAdd_Click);
+            // 
+            // HgroupBoxBook
+            // 
+            this.HgroupBoxBook.BackColor = System.Drawing.Color.Silver;
+            this.HgroupBoxBook.Controls.Add(this.HbuttonShowBook);
+            this.HgroupBoxBook.Location = new System.Drawing.Point(14, 276);
+            this.HgroupBoxBook.Name = "HgroupBoxBook";
+            this.HgroupBoxBook.Size = new System.Drawing.Size(304, 84);
+            this.HgroupBoxBook.TabIndex = 5;
+            this.HgroupBoxBook.TabStop = false;
+            this.HgroupBoxBook.Text = "Забронированные отели";
+            // 
+            // HbuttonShowBook
+            // 
+            this.HbuttonShowBook.Location = new System.Drawing.Point(5, 36);
+            this.HbuttonShowBook.Name = "HbuttonShowBook";
+            this.HbuttonShowBook.Size = new System.Drawing.Size(292, 29);
+            this.HbuttonShowBook.TabIndex = 0;
+            this.HbuttonShowBook.Text = "Показать забронированные отели";
+            this.HbuttonShowBook.UseVisualStyleBackColor = true;
+            this.HbuttonShowBook.Click += new System.EventHandler(this.HbuttonShowBook_Click);
             // 
             // HotelParams
             // 
@@ -358,9 +449,9 @@ namespace Tours
             // HbuttonClearParams
             // 
             this.HbuttonClearParams.BackColor = System.Drawing.Color.DarkGray;
-            this.HbuttonClearParams.Location = new System.Drawing.Point(7, 157);
+            this.HbuttonClearParams.Location = new System.Drawing.Point(7, 160);
             this.HbuttonClearParams.Name = "HbuttonClearParams";
-            this.HbuttonClearParams.Size = new System.Drawing.Size(290, 29);
+            this.HbuttonClearParams.Size = new System.Drawing.Size(290, 26);
             this.HbuttonClearParams.TabIndex = 11;
             this.HbuttonClearParams.Text = "Сбросить все параметры";
             this.HbuttonClearParams.UseVisualStyleBackColor = false;
@@ -428,6 +519,7 @@ namespace Tours
             // 
             this.HcomboBoxType.FormattingEnabled = true;
             this.HcomboBoxType.Items.AddRange(new object[] {
+            "",
             "Отель",
             "Апартамент",
             "Хостел",
@@ -482,6 +574,8 @@ namespace Tours
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.FgroupBoxManage);
+            this.tabPage2.Controls.Add(this.FgroupBoxBook);
             this.tabPage2.Controls.Add(this.FoodParams);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
@@ -490,6 +584,27 @@ namespace Tours
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Питание";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // FgroupBoxBook
+            // 
+            this.FgroupBoxBook.BackColor = System.Drawing.Color.Silver;
+            this.FgroupBoxBook.Controls.Add(this.FbuttonShowBook);
+            this.FgroupBoxBook.Location = new System.Drawing.Point(14, 266);
+            this.FgroupBoxBook.Name = "FgroupBoxBook";
+            this.FgroupBoxBook.Size = new System.Drawing.Size(304, 84);
+            this.FgroupBoxBook.TabIndex = 6;
+            this.FgroupBoxBook.TabStop = false;
+            this.FgroupBoxBook.Text = "Забронированное питание";
+            // 
+            // FbuttonShowBook
+            // 
+            this.FbuttonShowBook.Location = new System.Drawing.Point(5, 36);
+            this.FbuttonShowBook.Name = "FbuttonShowBook";
+            this.FbuttonShowBook.Size = new System.Drawing.Size(292, 29);
+            this.FbuttonShowBook.TabIndex = 0;
+            this.FbuttonShowBook.Text = "Показать забронированное питание";
+            this.FbuttonShowBook.UseVisualStyleBackColor = true;
+            this.FbuttonShowBook.Click += new System.EventHandler(this.FbuttonShowBook_Click);
             // 
             // FoodParams
             // 
@@ -556,6 +671,7 @@ namespace Tours
             // 
             this.FcomboBoxCategory.FormattingEnabled = true;
             this.FcomboBoxCategory.Items.AddRange(new object[] {
+            "",
             "Завтрак",
             "Полупансион",
             "Полный пансион",
@@ -580,6 +696,56 @@ namespace Tours
             this.AllFood.UseVisualStyleBackColor = true;
             this.AllFood.Click += new System.EventHandler(this.AllFood_Click);
             // 
+            // FgroupBoxManage
+            // 
+            this.FgroupBoxManage.BackColor = System.Drawing.Color.DarkGray;
+            this.FgroupBoxManage.Controls.Add(this.FbuttonChange);
+            this.FgroupBoxManage.Controls.Add(this.textBox1);
+            this.FgroupBoxManage.Controls.Add(this.FbuttonDelete);
+            this.FgroupBoxManage.Controls.Add(this.FbuttonAdd);
+            this.FgroupBoxManage.Location = new System.Drawing.Point(14, 388);
+            this.FgroupBoxManage.Name = "FgroupBoxManage";
+            this.FgroupBoxManage.Size = new System.Drawing.Size(304, 133);
+            this.FgroupBoxManage.TabIndex = 7;
+            this.FgroupBoxManage.TabStop = false;
+            this.FgroupBoxManage.Text = "Изменение питания";
+            // 
+            // FbuttonChange
+            // 
+            this.FbuttonChange.Location = new System.Drawing.Point(8, 62);
+            this.FbuttonChange.Name = "FbuttonChange";
+            this.FbuttonChange.Size = new System.Drawing.Size(290, 29);
+            this.FbuttonChange.TabIndex = 4;
+            this.FbuttonChange.Text = "Изменить питание";
+            this.FbuttonChange.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(8, 95);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(72, 27);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // FbuttonDelete
+            // 
+            this.FbuttonDelete.Location = new System.Drawing.Point(98, 94);
+            this.FbuttonDelete.Name = "FbuttonDelete";
+            this.FbuttonDelete.Size = new System.Drawing.Size(200, 29);
+            this.FbuttonDelete.TabIndex = 1;
+            this.FbuttonDelete.Text = "Удалить питание";
+            this.FbuttonDelete.UseVisualStyleBackColor = true;
+            // 
+            // FbuttonAdd
+            // 
+            this.FbuttonAdd.Location = new System.Drawing.Point(6, 27);
+            this.FbuttonAdd.Name = "FbuttonAdd";
+            this.FbuttonAdd.Size = new System.Drawing.Size(292, 29);
+            this.FbuttonAdd.TabIndex = 0;
+            this.FbuttonAdd.Text = "Добавить питание";
+            this.FbuttonAdd.UseVisualStyleBackColor = true;
+            this.FbuttonAdd.Click += new System.EventHandler(this.FbuttonAdd_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -599,12 +765,18 @@ namespace Tours
             this.TgroupBoxBook.ResumeLayout(false);
             this.TgroupBoxBook.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.HgroupBoxManage.ResumeLayout(false);
+            this.HgroupBoxManage.PerformLayout();
+            this.HgroupBoxBook.ResumeLayout(false);
             this.HotelParams.ResumeLayout(false);
             this.HotelParams.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FnumericUDStars)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.FgroupBoxBook.ResumeLayout(false);
             this.FoodParams.ResumeLayout(false);
             this.FoodParams.PerformLayout();
+            this.FgroupBoxManage.ResumeLayout(false);
+            this.FgroupBoxManage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -653,6 +825,20 @@ namespace Tours
         private System.Windows.Forms.Button TbuttonDelTour;
         private System.Windows.Forms.TextBox TtextBoxDelTour;
         private System.Windows.Forms.Button TbuttonChTour;
+        private System.Windows.Forms.GroupBox HgroupBoxBook;
+        private System.Windows.Forms.Button HbuttonShowBook;
+        private System.Windows.Forms.GroupBox FgroupBoxBook;
+        private System.Windows.Forms.Button FbuttonShowBook;
+        private System.Windows.Forms.GroupBox HgroupBoxManage;
+        private System.Windows.Forms.Button HbuttonChange;
+        private System.Windows.Forms.TextBox HtextBoxDelHotel;
+        private System.Windows.Forms.Button HbuttonDelete;
+        private System.Windows.Forms.Button HbuttonAdd;
+        private System.Windows.Forms.GroupBox FgroupBoxManage;
+        private System.Windows.Forms.Button FbuttonChange;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button FbuttonDelete;
+        private System.Windows.Forms.Button FbuttonAdd;
     }
 }
 

@@ -95,5 +95,57 @@ namespace Tours
         {
             Category = FcomboBoxCategory.SelectedItem.ToString();
         }
+
+        /*--------------------------------------------------------------
+         *                          Tourist
+         * -----------------------------------------------------------*/
+
+        private void FbuttonShowBook_Click(object sender, System.EventArgs e)
+        {
+            AddColumnsFood();
+
+            List<Tour> tours = tourist.GetAllBookings(UserID);
+            int numTours = tours.Count;
+
+            if (numTours > 0)
+            {
+                for (int i = 0; i < numTours; i++)
+                {
+                    Tour curTour = tours[i];
+                    Food curFood = tourist.GetFoodByID(curTour.Food);
+                    TablesGrid.Rows.Add(curFood.Foodid, curFood.Category,
+                                        curFood.Vegmenu, curFood.Childrenmenu, curFood.Bar, curFood.Cost);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Забронированные отели не найдены!");
+            }
+        }
+
+        /*--------------------------------------------------------------
+         *                          Manager
+         * -----------------------------------------------------------*/
+        private void FbuttonAdd_Click(object sender, System.EventArgs e)
+        {
+            FormManageTour formManage = new FormManageTour(FormManageTour.ChangeObj.Food);
+            formManage.ShowDialog();
+            Food nfood = formManage.ReturnFood();
+
+            MessageBox.Show("ID = " + nfood.Foodid +
+                "Cat = " + nfood.Category +
+                "Veg = " + nfood.Vegmenu + 
+                "Child = " + nfood.Childrenmenu +
+                "Bar = " + nfood.Bar + 
+                "Cost = " + nfood.Cost);
+
+            /*if (nfood != null)
+            {
+                manager.AddFood(nfood);
+                MessageBox.Show("Питание былы добавлено!");
+            }
+            */
+        }
     }
 }

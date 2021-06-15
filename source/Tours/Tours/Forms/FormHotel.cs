@@ -99,11 +99,82 @@ namespace Tours
 
         private void HbuttonClearParams_Click(object sender, System.EventArgs e)
         {
+            HcomboBoxCity.SelectedItem = "";
             HcomboBoxType.SelectedItem = "";
-            HcheckSwimPool.Checked = false;
             FnumericUDStars.Value = 5;
-            HcomboBoxType.SelectedItem = "";
+            HcheckSwimPool.Checked = false;
             Class = -1; IsSwimPool = false; HotelCity = ""; Type = "";
+        }
+
+        /*--------------------------------------------------------------
+         *                          Tourist
+         * -----------------------------------------------------------*/
+
+        private void HbuttonShowBook_Click(object sender, System.EventArgs e)
+        {
+            AddColumnsHotel();
+
+            List<Tour> tours = tourist.GetAllBookings(UserID);
+            int numTours = tours.Count;
+
+            if (numTours > 0)
+            {
+                for (int i = 0; i < numTours; i++)
+                {
+                    Tour curTour = tours[i];
+                    Hotel curHotel = tourist.GetHotelByID(curTour.Hotel);
+
+                    TablesGrid.Rows.Add(curHotel.Hotelid, curHotel.City, curHotel.Name, curHotel.Type, curHotel.Class, curHotel.Swimpool, curHotel.Cost);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Забронированные отели не найдены!");
+            }
+        }
+
+        /*--------------------------------------------------------------
+         *                          Manager
+         * -----------------------------------------------------------*/
+        private void HbuttonAdd_Click(object sender, System.EventArgs e)
+        {
+            FormManageTour formManage = new FormManageTour(FormManageTour.ChangeObj.Hotel);
+            formManage.ShowDialog();
+            Hotel nhotel = formManage.ReturnHotel();
+
+            if (nhotel != null)
+            {
+                manager.AddHotel(nhotel);
+                MessageBox.Show("Отель был добавлен!");
+            }
+        }
+
+        private void HbuttonChange_Click(object sender, System.EventArgs e)
+        {
+            FormManageTour formManage = new FormManageTour(FormManageTour.ChangeObj.Hotel);
+            formManage.ShowDialog();
+            Hotel chhotel = formManage.ReturnHotel();
+
+            if (chhotel != null)
+            {
+                manager.UpdateHotel(chhotel);
+                MessageBox.Show("Отель был обновлен!");
+            }
+        }
+
+        private void HbuttonDelete_Click(object sender, System.EventArgs e)
+        {
+            int DelHotelID = Convert.ToInt32(HtextBoxDelHotel.Text);
+            Hotel hotel = manager.GetHotelByID(DelHotelID);
+            if (hotel != null)
+            {
+                manager.DeleteHotelByID(DelHotelID);
+                MessageBox.Show("Отель " + DelHotelID + " был удален!");
+            }
+            else
+            {
+                MessageBox.Show("Указанного отеля не найдено!");
+            }
         }
     }
 }

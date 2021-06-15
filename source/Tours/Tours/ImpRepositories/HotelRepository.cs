@@ -46,6 +46,10 @@ namespace Tours.ImpRepositories
         {
             try
             {
+                Hotel uHotel = FindByID(obj.Hotelid);
+                uHotel.Name = obj.Name; uHotel.Type = obj.Type; uHotel.Class = obj.Class;
+                uHotel.Swimpool = obj.Swimpool; uHotel.City = obj.City; uHotel.Cost = obj.Cost;
+
                 db.Hotels.Update(obj);
                 db.SaveChanges();
                 logger.Information("+HotelRep : Hotel {Number} was added to Hotels", obj.Hotelid);

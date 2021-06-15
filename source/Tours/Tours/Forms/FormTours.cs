@@ -1,6 +1,8 @@
 ﻿using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
+using System.Linq;
+using static Tours.FormManageTour;
 
 namespace Tours
 {
@@ -31,14 +33,26 @@ namespace Tours
             DateTime DateBegin = TimePickerBegin.Value;
             DateTime DateEnd = TimePickerEnd.Value;
 
-            List<Tour> tours = guest.GetToursByDate(DateBegin, DateEnd);
-            int numTours = tours.Count;
+            List<Tour> toursCity;
+            if (TourCity != "")
+            {
+                toursCity = guest.GetToursByCity(TourCity);
+            }
+            else
+            {
+                toursCity = guest.GetAllTours();
+            }
+
+            List<Tour> toursDate = guest.GetToursByDate(DateBegin, DateEnd);
+            
+            List<Tour> resTours = toursCity.Intersect(toursDate).ToList();
+            int numTours = resTours.Count;
 
             if (numTours > 0)
             {
                 for (int i = 0; i < numTours; i++)
                 {
-                    Tour curTour = tours[i];
+                    Tour curTour = resTours[i];
                     Food curFood = guest.GetFoodByID(curTour.Food);
                     Hotel curHotel = guest.GetHotelByID(curTour.Hotel);
 
@@ -48,7 +62,7 @@ namespace Tours
             }
             else
             {
-                MessageBox.Show("Туры не найдены");
+                MessageBox.Show("Туры не найдены!");
             }
         }
 
@@ -77,49 +91,42 @@ namespace Tours
                     Food curFood = tourist.GetFoodByID(curTour.Food);
                     Hotel curHotel = tourist.GetHotelByID(curTour.Hotel);
 
-                    TablesGrid.Rows.Add(curTour.Tourid, curHotel.Name, curHotel.Type, curFood.Category, curTour.Transfer, curTour.Cost,
+                    TablesGrid.Rows.Add(curTour.Tourid, curHotel.City, curHotel.Name, curHotel.Type, curFood.Category, curTour.Transfer, curTour.Cost,
                         curTour.Datebegin.Date.ToString("d"), curTour.Dateend.Date.ToString("d"));
                 }
             }
             else
             {
-                MessageBox.Show("Туры не найдены");
+                MessageBox.Show("Туры не найдены!");
             }
         }
 
         private void TbuttonBook_Click(object sender, System.EventArgs e)
         {
+            BookTourID = Convert.ToInt32(TtextBoxBookTour.Text);
             Tour btour = tourist.GetTourByID(BookTourID);
             if (btour != null)
             {
                 List<Tour> atours = tourist.GetAllBookings(UserID);
                 if (atours.Contains(btour))
                 {
-                    MessageBox.Show("Тур " + BookTourID + " уже забронирован");
+                    MessageBox.Show("Тур " + BookTourID + " уже забронирован!");
                 }
                 else
                 {
                     tourist.BookTour(BookTourID, UserID);
-                    MessageBox.Show("Тур " + BookTourID + " забронирован");
+                    MessageBox.Show("Тур " + BookTourID + " забронирован!");
                 }
             }
             else
             {
-                MessageBox.Show("Тур для брони не найден");
-            }
-        }
-
-        private void TtextBoxBookTour_TextChanged(object sender, System.EventArgs e)
-        {
-            int bID = Convert.ToInt32(TtextBoxBookTour.Text);
-            if (bID != 0)
-            {
-                BookTourID = bID;
+                MessageBox.Show("Тур для брони не найден!");
             }
         }
 
         private void TbuttonDelBook_Click(object sender, System.EventArgs e)
         {
+            DelBookTourID = Convert.ToInt32(TtextBoxDeleteBook.Text);
             Tour dbtour = tourist.GetTourByID(DelBookTourID);
             if (dbtour != null)
             {
@@ -127,59 +134,52 @@ namespace Tours
                 if (atours.Contains(dbtour))
                 {
                     tourist.RemoveTour(DelBookTourID, UserID);
-                    MessageBox.Show("Бронирование тура " + DelBookTourID + " отменено");
+                    MessageBox.Show("Бронирование тура " + DelBookTourID + " отменено!");
                 }
                 else
                 {
-                    MessageBox.Show("Бронь тура " + DelBookTourID + " отсутсвует");
+                    MessageBox.Show("Бронь тура " + DelBookTourID + " отсутсвует!");
                 }
             }
             else
             {
-                MessageBox.Show("Забронированный тур не найден");
-            }
-        }
-
-        private void TtextBoxDelteBook_TextChanged(object sender, System.EventArgs e)
-        {
-            int dBID = Convert.ToInt32(TtextBoxDeleteBook.Text);
-            if (dBID != 0)
-            {
-                DelBookTourID = dBID;
+                MessageBox.Show("Забронированный тур не найден!");
             }
         }
 
         /*--------------------------------------------------------------
          *                          Manager
          * -----------------------------------------------------------*/
-        int DelTourID = 0;
 
         private void TbuttonAdd_Click(object sender, System.EventArgs e)
         {
-            FormManageTour formManage = new FormManageTour();
+            FormManageTour formManage = new FormManageTour(ChangeObj.Tour);
             formManage.ShowDialog();
             Tour ntour = formManage.ReturnTour();
-            
-            manager.AddTour(ntour);
-            MessageBox.Show("Тур был добавлен!");
+
+            if (ntour != null)
+            {
+                manager.AddTour(ntour);
+                MessageBox.Show("Тур был добавлен!");
+            }
         }
 
         private void TbuttonChTour_Click(object sender, System.EventArgs e)
         {
-            DateTime dateB = new DateTime(2022, 03, 10);
-            DateTime dateE = new DateTime(2022, 05, 01);
-            Tour chtour = new Tour { Tourid = 11, Food = 1, Hotel = 2, Transfer = 3, Cost = 4, Datebegin = dateB, Dateend = dateE };
-
-            FormManageTour formManage = new FormManageTour();
+            FormManageTour formManage = new FormManageTour(ChangeObj.Tour);
             formManage.ShowDialog();
-            chtour = formManage.ReturnTour();
+            Tour chtour = formManage.ReturnTour();
 
-            manager.UpdateTour(chtour);
-            MessageBox.Show("Тур был обновлен!");
+            if (chtour != null)
+            {
+                manager.UpdateTour(chtour);
+                MessageBox.Show("Тур был обновлен!");
+            }
         }
 
         private void TbuttonDelTour_Click(object sender, System.EventArgs e)
         {
+            int DelTourID = Convert.ToInt32(TtextBoxDelTour.Text);
             Tour tour = manager.GetTourByID(DelTourID);
             if (tour != null)
             {
@@ -189,15 +189,6 @@ namespace Tours
             else
             {
                 MessageBox.Show("Указанного тура не найдено!");
-            }
-        }
-
-        private void TtextBoxDelTour_TextChanged(object sender, System.EventArgs e)
-        {
-            int dTID = Convert.ToInt32(TtextBoxDelTour.Text);
-            if (dTID != 0)
-            {
-                DelTourID = dTID;
             }
         }
     }

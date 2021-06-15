@@ -42,6 +42,20 @@ namespace Tours.ComponentsBL
             return tourRepository.FindTourByDate(beg, end);
         }
 
+        public List<Tour> GetToursByCity(string city)
+        {
+            List<Hotel> hotels = hotelRepository.FindHotelsByCity(city);
+            List<Tour> tours = new List<Tour>();
+            for (int i = 0; i < hotels.Count; i++)
+            {
+                Hotel curHotel = hotels[i];
+                List<Tour> curTour = tourRepository.FindToursByHotel(curHotel.Hotelid);
+                tours.AddRange(curTour);
+            }
+
+            return tours;
+        }
+
 
         /*--------------------------------------------------------------
          *                          Hotels
