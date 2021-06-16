@@ -95,12 +95,6 @@ namespace Tours.ComponentsBL
             return hotelRepository.FindHotelBySwimPool(sp);
         }
 
-        public List<Hotel> GetHotelsByLowCost(int cost)
-        {
-            return hotelRepository.FindHotelByLowCost(cost);
-        }
-
-
         /*--------------------------------------------------------------
          *                          Food
          * -----------------------------------------------------------*/
@@ -134,14 +128,11 @@ namespace Tours.ComponentsBL
             return foodRepository.FindFoodByBar(bar);
         }
 
-        public List<Food> GetFoodByParams(string cat, bool vm, bool cm, bool bar)
-        {
-            return foodRepository.FindFoodByParams(cat, vm, cm, bar);
-        }
 
-        public List<Food> GetFoodByParams(bool vm, bool cm, bool bar)
+
+        public Transfer GetTransferByID(int transfID)
         {
-            return foodRepository.FindFoodByParams(vm, cm, bar);
+            return transferRepository.FindByID(transfID);
         }
 
         /*--------------------------------------------------------------
@@ -152,9 +143,24 @@ namespace Tours.ComponentsBL
             return busRepository.FindAll();
         }
 
-        public List<Busticket> GetBusByLowCost(int cost)
+        public Busticket GetBusByID(int busID)
         {
-            return busRepository.FindBusByLowCost(cost);
+            return busRepository.FindByID(busID);
+        }
+
+        public List<Busticket> GetBusesByCityFrom(string city)
+        {
+            return busRepository.FindBusesByCityFrom(city);
+        }
+
+        public List<Busticket> GetBusesByCityTo(string city)
+        {
+            return busRepository.FindBusesByCityTo(city);
+        }
+
+        public List<Busticket> GetBusesByDate(DateTime date)
+        {
+            return busRepository.FindBusesByDate(date);
         }
 
         /*--------------------------------------------------------------
@@ -165,11 +171,25 @@ namespace Tours.ComponentsBL
             return planeRepository.FindAll();
         }
 
-        public List<Planeticket> GetPlanesByLowCost(int cost)
+        public Planeticket GetPlaneByID(int planeID)
         {
-            return planeRepository.FindPlaneByLowCost(cost);
+            return planeRepository.FindByID(planeID);
         }
 
+        public List<Planeticket> GetPlanesByCityFrom(string city)
+        {
+            return planeRepository.FindPlanesByCityFrom(city);
+        }
+
+        public List<Planeticket> GetPlanesByCityTo(string city)
+        {
+            return planeRepository.FindPlanesByCityTo(city);
+        }
+
+        public List<Planeticket> GetPlanesByDate(DateTime date)
+        {
+            return planeRepository.FindPlanesByDate(date);
+        }
 
         /*--------------------------------------------------------------
          *                          TrainTicket
@@ -179,9 +199,24 @@ namespace Tours.ComponentsBL
             return trainRepository.FindAll();
         }
 
-        public List<Trainticket> GetTrainsByLowCost(int cost)
+        public Trainticket GetTrainByID(int trainID)
         {
-            return trainRepository.FindTrainByLowCost(cost);
+            return trainRepository.FindByID(trainID);
+        }
+
+        public List<Trainticket> GetTrainsByCityFrom(string city)
+        {
+            return trainRepository.FindTrainsByCityFrom(city);
+        }
+
+        public List<Trainticket> GetTrainsByCityTo(string city)
+        {
+            return trainRepository.FindTrainsByCityTo(city);
+        }
+
+        public List<Trainticket> GetTrainsByDate(DateTime date)
+        {
+            return trainRepository.FindTrainsByDate(date);
         }
     }
 }

@@ -46,7 +46,12 @@ namespace Tours.ImpRepositories
         {
             try
             {
-                db.Foods.Update(obj);
+                Food uFood = FindByID(obj.Foodid);
+                uFood.Category = obj.Category; uFood.Vegmenu = obj.Vegmenu; 
+                uFood.Childrenmenu = obj.Childrenmenu; uFood.Bar = obj.Bar; 
+                uFood.Cost = obj.Cost;
+
+                db.Foods.Update(uFood);
                 db.SaveChanges();
                 logger.Information("+FoodRep : Food {Number} was updated at Food", obj.Foodid);
             }

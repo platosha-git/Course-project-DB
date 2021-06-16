@@ -17,8 +17,8 @@ namespace Tours
         public int? Seat { get; set; }
         public string Cityfrom { get; set; }
         public string Cityto { get; set; }
-        public TimeSpan? Departuretime { get; set; }
-        public TimeSpan? Arrivaltime { get; set; }
+        public DateTime? Departuretime { get; set; }
+        public DateTime? Arrivaltime { get; set; }
         public bool? Luggage { get; set; }
         public int? Cost { get; set; }
 

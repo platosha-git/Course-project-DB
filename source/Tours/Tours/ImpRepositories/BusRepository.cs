@@ -19,7 +19,9 @@ namespace Tours.ImpRepositories
 
         public List<Busticket> FindAll()
         {
-            return db.Bustickets.ToList();
+            List<Busticket> buses = db.Bustickets.ToList();
+            buses.RemoveAt(0);
+            return buses;
         }
 
         public Busticket FindByID(int id)
@@ -83,7 +85,26 @@ namespace Tours.ImpRepositories
             {
                 logger.Error(err.Message, "+BusRep : Error trying to delete busticket {Number} from Bustickets", id);
             }
-}
+        }
+
+        public List<Busticket> FindBusesByCityFrom(string city)
+        {
+            IQueryable<Busticket> busTickets = db.Bustickets.Where(needed => needed.Cityfrom.Contains(city));
+            return busTickets.ToList();
+        }
+
+        public List<Busticket> FindBusesByCityTo(string city)
+        {
+            IQueryable<Busticket> busTickets = db.Bustickets.Where(needed => needed.Cityto.Contains(city));
+            return busTickets.ToList();
+        }
+
+        public List<Busticket> FindBusesByDate(DateTime date)
+        {
+            DateTime dBeg = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
+            IQueryable<Busticket> busTickets = db.Bustickets.Where(needed => needed.Departuretime >= dBeg);
+            return busTickets.ToList();
+        }
 
         public List<Busticket> FindBusByLowCost(int cost)
         {

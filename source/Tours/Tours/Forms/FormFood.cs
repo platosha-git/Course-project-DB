@@ -120,7 +120,7 @@ namespace Tours
             }
             else
             {
-                MessageBox.Show("Забронированные отели не найдены!");
+                MessageBox.Show("Забронированное питание не найдено!");
             }
         }
 
@@ -133,19 +133,38 @@ namespace Tours
             formManage.ShowDialog();
             Food nfood = formManage.ReturnFood();
 
-            MessageBox.Show("ID = " + nfood.Foodid +
-                "Cat = " + nfood.Category +
-                "Veg = " + nfood.Vegmenu + 
-                "Child = " + nfood.Childrenmenu +
-                "Bar = " + nfood.Bar + 
-                "Cost = " + nfood.Cost);
-
-            /*if (nfood != null)
+            if (nfood != null)
             {
                 manager.AddFood(nfood);
-                MessageBox.Show("Питание былы добавлено!");
+                MessageBox.Show("Питание было добавлено!");
             }
-            */
+        }
+        private void FbuttonChange_Click(object sender, System.EventArgs e)
+        {
+            FormManageTour formManage = new FormManageTour(FormManageTour.ChangeObj.Food);
+            formManage.ShowDialog();
+            Food chfood = formManage.ReturnFood();
+
+            if (chfood != null)
+            {
+                manager.UpdateFood(chfood);
+                MessageBox.Show("Питание было обновлено!");
+            }
+        }
+
+        private void FbuttonDelete_Click(object sender, System.EventArgs e)
+        {
+            int DelFoodID = Convert.ToInt32(FtextBoxDelFood.Text);
+            Food food = manager.GetFoodByID(DelFoodID);
+            if (food != null)
+            {
+                manager.DeleteFoodByID(DelFoodID);
+                MessageBox.Show("Питание " + DelFoodID + " было удалено!");
+            }
+            else
+            {
+                MessageBox.Show("Указанного питания не найдено!");
+            }
         }
     }
 }

@@ -19,7 +19,9 @@ namespace Tours.ImpRepositories
 
         public List<Trainticket> FindAll()
         {
-            return db.Traintickets.ToList();
+            List<Trainticket> trains = db.Traintickets.ToList();
+            trains.RemoveAt(0);
+            return trains;
         }
 
         public Trainticket FindByID(int id)
@@ -84,6 +86,25 @@ namespace Tours.ImpRepositories
             {
                 logger.Error(err.Message, "+TrainRep : Error trying to delete trainticket {Number} from Traintickets", id);
             }
+        }
+
+        public List<Trainticket> FindTrainsByCityFrom(string city)
+        {
+            IQueryable<Trainticket> trainTickets = db.Traintickets.Where(needed => needed.Cityfrom.Contains(city));
+            return trainTickets.ToList();
+        }
+
+        public List<Trainticket> FindTrainsByCityTo(string city)
+        {
+            IQueryable<Trainticket> trainTickets = db.Traintickets.Where(needed => needed.Cityto.Contains(city));
+            return trainTickets.ToList();
+        }
+
+        public List<Trainticket> FindTrainsByDate(DateTime date)
+        {
+            DateTime dBeg = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
+            IQueryable<Trainticket> trainTickets = db.Traintickets.Where(needed => needed.Departuretime >= dBeg);
+            return trainTickets.ToList();
         }
 
         public List<Trainticket> FindTrainByLowCost(int cost)

@@ -50,12 +50,18 @@ namespace Tours
             if (lvl == AccessLevel.Guest)
             {
                 TgroupBoxBook.Visible = false;
-                TgroupBoxAdd.Visible = false;
-            }
+                HgroupBoxBook.Visible = false;
+                FgroupBoxBook.Visible = false;
 
-            if (lvl == AccessLevel.Tourist)
+                TgroupBoxManage.Visible = false;
+                HgroupBoxManage.Visible = false;
+                FgroupBoxManage.Visible = false;
+            }
+            else if (lvl == AccessLevel.Tourist)
             {
-                TgroupBoxAdd.Visible = false;
+                TgroupBoxManage.Visible = false;
+                HgroupBoxManage.Visible = false;
+                FgroupBoxManage.Visible = false;
             }
         }
     }

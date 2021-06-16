@@ -19,7 +19,9 @@ namespace Tours.ImpRepositories
 
         public List<Planeticket> FindAll()
         {
-            return db.Planetickets.ToList();
+            List<Planeticket> planes = db.Planetickets.ToList();
+            planes.RemoveAt(0);
+            return planes;
         }
 
         public Planeticket FindByID(int id)
@@ -84,6 +86,25 @@ namespace Tours.ImpRepositories
             {
                 logger.Error(err.Message, "+PlaneRep : Error trying to delete planeticket {Number} from Planetickets", id);
             }
+        }
+
+        public List<Planeticket> FindPlanesByCityFrom(string city)
+        {
+            IQueryable<Planeticket> planeTickets = db.Planetickets.Where(needed => needed.Cityfrom.Contains(city));
+            return planeTickets.ToList();
+        }
+
+        public List<Planeticket> FindPlanesByCityTo(string city)
+        {
+            IQueryable<Planeticket> planeTickets = db.Planetickets.Where(needed => needed.Cityto.Contains(city));
+            return planeTickets.ToList();
+        }
+
+        public List<Planeticket> FindPlanesByDate(DateTime date)
+        {
+            DateTime dBeg = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
+            IQueryable<Planeticket> planeTickets = db.Planetickets.Where(needed => needed.Departuretime >= dBeg);
+            return planeTickets.ToList();
         }
 
         public List<Planeticket> FindPlaneByLowCost(int cost)

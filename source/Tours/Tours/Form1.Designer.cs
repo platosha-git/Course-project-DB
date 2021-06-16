@@ -40,7 +40,7 @@ namespace Tours
             this.TimePickerBegin = new System.Windows.Forms.DateTimePicker();
             this.tabSelect = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.TgroupBoxAdd = new System.Windows.Forms.GroupBox();
+            this.TgroupBoxManage = new System.Windows.Forms.GroupBox();
             this.TbuttonChTour = new System.Windows.Forms.Button();
             this.TtextBoxDelTour = new System.Windows.Forms.TextBox();
             this.TbuttonDelTour = new System.Windows.Forms.Button();
@@ -71,6 +71,11 @@ namespace Tours
             this.label1 = new System.Windows.Forms.Label();
             this.HcomboBoxCity = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.FgroupBoxManage = new System.Windows.Forms.GroupBox();
+            this.FbuttonChange = new System.Windows.Forms.Button();
+            this.FtextBoxDelFood = new System.Windows.Forms.TextBox();
+            this.FbuttonDelete = new System.Windows.Forms.Button();
+            this.FbuttonAdd = new System.Windows.Forms.Button();
             this.FgroupBoxBook = new System.Windows.Forms.GroupBox();
             this.FbuttonShowBook = new System.Windows.Forms.Button();
             this.FoodParams = new System.Windows.Forms.GroupBox();
@@ -80,16 +85,24 @@ namespace Tours
             this.FoodLbl1 = new System.Windows.Forms.Label();
             this.FcomboBoxCategory = new System.Windows.Forms.ComboBox();
             this.AllFood = new System.Windows.Forms.Button();
-            this.FgroupBoxManage = new System.Windows.Forms.GroupBox();
-            this.FbuttonChange = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.FbuttonDelete = new System.Windows.Forms.Button();
-            this.FbuttonAdd = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.TrgroupBoxBook = new System.Windows.Forms.GroupBox();
+            this.TrcheckedListBoxBook = new System.Windows.Forms.CheckedListBox();
+            this.BookTransfer = new System.Windows.Forms.Button();
+            this.TransfParams = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxTr = new System.Windows.Forms.CheckedListBox();
+            this.AllTransfer = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TrdateTimePickerBeg = new System.Windows.Forms.DateTimePicker();
+            this.TrcomboBoxCityT = new System.Windows.Forms.ComboBox();
+            this.TrcomboBoxCityF = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TablesGrid)).BeginInit();
             this.ToursParams.SuspendLayout();
             this.tabSelect.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.TgroupBoxAdd.SuspendLayout();
+            this.TgroupBoxManage.SuspendLayout();
             this.TgroupBoxBook.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.HgroupBoxManage.SuspendLayout();
@@ -97,20 +110,23 @@ namespace Tours
             this.HotelParams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FnumericUDStars)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.FgroupBoxManage.SuspendLayout();
             this.FgroupBoxBook.SuspendLayout();
             this.FoodParams.SuspendLayout();
-            this.FgroupBoxManage.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.TrgroupBoxBook.SuspendLayout();
+            this.TransfParams.SuspendLayout();
             this.SuspendLayout();
             // 
             // TablesGrid
             // 
             this.TablesGrid.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.TablesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TablesGrid.Location = new System.Drawing.Point(358, 29);
+            this.TablesGrid.Location = new System.Drawing.Point(354, 12);
             this.TablesGrid.Name = "TablesGrid";
             this.TablesGrid.RowHeadersWidth = 51;
             this.TablesGrid.RowTemplate.Height = 29;
-            this.TablesGrid.Size = new System.Drawing.Size(1112, 645);
+            this.TablesGrid.Size = new System.Drawing.Size(1112, 615);
             this.TablesGrid.TabIndex = 0;
             // 
             // AllTours
@@ -209,38 +225,39 @@ namespace Tours
             this.tabSelect.Controls.Add(this.tabPage1);
             this.tabSelect.Controls.Add(this.tabPage3);
             this.tabSelect.Controls.Add(this.tabPage2);
-            this.tabSelect.Location = new System.Drawing.Point(12, 29);
+            this.tabSelect.Controls.Add(this.tabPage4);
+            this.tabSelect.Location = new System.Drawing.Point(12, 12);
             this.tabSelect.Name = "tabSelect";
             this.tabSelect.SelectedIndex = 0;
-            this.tabSelect.Size = new System.Drawing.Size(340, 649);
+            this.tabSelect.Size = new System.Drawing.Size(340, 619);
             this.tabSelect.TabIndex = 4;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.TgroupBoxAdd);
+            this.tabPage1.Controls.Add(this.TgroupBoxManage);
             this.tabPage1.Controls.Add(this.TgroupBoxBook);
             this.tabPage1.Controls.Add(this.ToursParams);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(332, 616);
+            this.tabPage1.Size = new System.Drawing.Size(332, 586);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Туры";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // TgroupBoxAdd
+            // TgroupBoxManage
             // 
-            this.TgroupBoxAdd.BackColor = System.Drawing.Color.DarkGray;
-            this.TgroupBoxAdd.Controls.Add(this.TbuttonChTour);
-            this.TgroupBoxAdd.Controls.Add(this.TtextBoxDelTour);
-            this.TgroupBoxAdd.Controls.Add(this.TbuttonDelTour);
-            this.TgroupBoxAdd.Controls.Add(this.TbuttonAdd);
-            this.TgroupBoxAdd.Location = new System.Drawing.Point(14, 435);
-            this.TgroupBoxAdd.Name = "TgroupBoxAdd";
-            this.TgroupBoxAdd.Size = new System.Drawing.Size(304, 133);
-            this.TgroupBoxAdd.TabIndex = 5;
-            this.TgroupBoxAdd.TabStop = false;
-            this.TgroupBoxAdd.Text = "Изменение туров";
+            this.TgroupBoxManage.BackColor = System.Drawing.Color.DarkGray;
+            this.TgroupBoxManage.Controls.Add(this.TbuttonChTour);
+            this.TgroupBoxManage.Controls.Add(this.TtextBoxDelTour);
+            this.TgroupBoxManage.Controls.Add(this.TbuttonDelTour);
+            this.TgroupBoxManage.Controls.Add(this.TbuttonAdd);
+            this.TgroupBoxManage.Location = new System.Drawing.Point(14, 435);
+            this.TgroupBoxManage.Name = "TgroupBoxManage";
+            this.TgroupBoxManage.Size = new System.Drawing.Size(304, 133);
+            this.TgroupBoxManage.TabIndex = 5;
+            this.TgroupBoxManage.TabStop = false;
+            this.TgroupBoxManage.Text = "Изменение туров";
             // 
             // TbuttonChTour
             // 
@@ -348,7 +365,7 @@ namespace Tours
             this.tabPage3.Controls.Add(this.HotelParams);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(332, 616);
+            this.tabPage3.Size = new System.Drawing.Size(332, 586);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Отели";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -580,10 +597,62 @@ namespace Tours
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(332, 616);
+            this.tabPage2.Size = new System.Drawing.Size(332, 586);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Питание";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // FgroupBoxManage
+            // 
+            this.FgroupBoxManage.BackColor = System.Drawing.Color.DarkGray;
+            this.FgroupBoxManage.Controls.Add(this.FbuttonChange);
+            this.FgroupBoxManage.Controls.Add(this.FtextBoxDelFood);
+            this.FgroupBoxManage.Controls.Add(this.FbuttonDelete);
+            this.FgroupBoxManage.Controls.Add(this.FbuttonAdd);
+            this.FgroupBoxManage.Location = new System.Drawing.Point(14, 388);
+            this.FgroupBoxManage.Name = "FgroupBoxManage";
+            this.FgroupBoxManage.Size = new System.Drawing.Size(304, 133);
+            this.FgroupBoxManage.TabIndex = 7;
+            this.FgroupBoxManage.TabStop = false;
+            this.FgroupBoxManage.Text = "Изменение питания";
+            // 
+            // FbuttonChange
+            // 
+            this.FbuttonChange.Location = new System.Drawing.Point(8, 62);
+            this.FbuttonChange.Name = "FbuttonChange";
+            this.FbuttonChange.Size = new System.Drawing.Size(290, 29);
+            this.FbuttonChange.TabIndex = 4;
+            this.FbuttonChange.Text = "Изменить питание";
+            this.FbuttonChange.UseVisualStyleBackColor = true;
+            this.FbuttonChange.Click += new System.EventHandler(this.FbuttonChange_Click);
+            // 
+            // FtextBoxDelFood
+            // 
+            this.FtextBoxDelFood.Location = new System.Drawing.Point(8, 95);
+            this.FtextBoxDelFood.Name = "FtextBoxDelFood";
+            this.FtextBoxDelFood.Size = new System.Drawing.Size(72, 27);
+            this.FtextBoxDelFood.TabIndex = 2;
+            this.FtextBoxDelFood.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // FbuttonDelete
+            // 
+            this.FbuttonDelete.Location = new System.Drawing.Point(98, 94);
+            this.FbuttonDelete.Name = "FbuttonDelete";
+            this.FbuttonDelete.Size = new System.Drawing.Size(200, 29);
+            this.FbuttonDelete.TabIndex = 1;
+            this.FbuttonDelete.Text = "Удалить питание";
+            this.FbuttonDelete.UseVisualStyleBackColor = true;
+            this.FbuttonDelete.Click += new System.EventHandler(this.FbuttonDelete_Click);
+            // 
+            // FbuttonAdd
+            // 
+            this.FbuttonAdd.Location = new System.Drawing.Point(6, 27);
+            this.FbuttonAdd.Name = "FbuttonAdd";
+            this.FbuttonAdd.Size = new System.Drawing.Size(292, 29);
+            this.FbuttonAdd.TabIndex = 0;
+            this.FbuttonAdd.Text = "Добавить питание";
+            this.FbuttonAdd.UseVisualStyleBackColor = true;
+            this.FbuttonAdd.Click += new System.EventHandler(this.FbuttonAdd_Click);
             // 
             // FgroupBoxBook
             // 
@@ -696,61 +765,172 @@ namespace Tours
             this.AllFood.UseVisualStyleBackColor = true;
             this.AllFood.Click += new System.EventHandler(this.AllFood_Click);
             // 
-            // FgroupBoxManage
+            // tabPage4
             // 
-            this.FgroupBoxManage.BackColor = System.Drawing.Color.DarkGray;
-            this.FgroupBoxManage.Controls.Add(this.FbuttonChange);
-            this.FgroupBoxManage.Controls.Add(this.textBox1);
-            this.FgroupBoxManage.Controls.Add(this.FbuttonDelete);
-            this.FgroupBoxManage.Controls.Add(this.FbuttonAdd);
-            this.FgroupBoxManage.Location = new System.Drawing.Point(14, 388);
-            this.FgroupBoxManage.Name = "FgroupBoxManage";
-            this.FgroupBoxManage.Size = new System.Drawing.Size(304, 133);
-            this.FgroupBoxManage.TabIndex = 7;
-            this.FgroupBoxManage.TabStop = false;
-            this.FgroupBoxManage.Text = "Изменение питания";
+            this.tabPage4.Controls.Add(this.TrgroupBoxBook);
+            this.tabPage4.Controls.Add(this.TransfParams);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(332, 586);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Трансфер";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // FbuttonChange
+            // TrgroupBoxBook
             // 
-            this.FbuttonChange.Location = new System.Drawing.Point(8, 62);
-            this.FbuttonChange.Name = "FbuttonChange";
-            this.FbuttonChange.Size = new System.Drawing.Size(290, 29);
-            this.FbuttonChange.TabIndex = 4;
-            this.FbuttonChange.Text = "Изменить питание";
-            this.FbuttonChange.UseVisualStyleBackColor = true;
+            this.TrgroupBoxBook.BackColor = System.Drawing.Color.Silver;
+            this.TrgroupBoxBook.Controls.Add(this.TrcheckedListBoxBook);
+            this.TrgroupBoxBook.Controls.Add(this.BookTransfer);
+            this.TrgroupBoxBook.Location = new System.Drawing.Point(13, 309);
+            this.TrgroupBoxBook.Name = "TrgroupBoxBook";
+            this.TrgroupBoxBook.Size = new System.Drawing.Size(304, 140);
+            this.TrgroupBoxBook.TabIndex = 7;
+            this.TrgroupBoxBook.TabStop = false;
+            this.TrgroupBoxBook.Text = "Забронированный трансфер";
             // 
-            // textBox1
+            // TrcheckedListBoxBook
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 95);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 27);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TrcheckedListBoxBook.CheckOnClick = true;
+            this.TrcheckedListBoxBook.FormattingEnabled = true;
+            this.TrcheckedListBoxBook.Items.AddRange(new object[] {
+            "Автобус",
+            "Самолет",
+            "Поезд"});
+            this.TrcheckedListBoxBook.Location = new System.Drawing.Point(6, 29);
+            this.TrcheckedListBoxBook.Name = "TrcheckedListBoxBook";
+            this.TrcheckedListBoxBook.Size = new System.Drawing.Size(150, 70);
+            this.TrcheckedListBoxBook.TabIndex = 8;
+            this.TrcheckedListBoxBook.SelectedIndexChanged += new System.EventHandler(this.TrcheckedListBoxBook_SelectedIndexChanged);
             // 
-            // FbuttonDelete
+            // BookTransfer
             // 
-            this.FbuttonDelete.Location = new System.Drawing.Point(98, 94);
-            this.FbuttonDelete.Name = "FbuttonDelete";
-            this.FbuttonDelete.Size = new System.Drawing.Size(200, 29);
-            this.FbuttonDelete.TabIndex = 1;
-            this.FbuttonDelete.Text = "Удалить питание";
-            this.FbuttonDelete.UseVisualStyleBackColor = true;
+            this.BookTransfer.Location = new System.Drawing.Point(6, 105);
+            this.BookTransfer.Name = "BookTransfer";
+            this.BookTransfer.Size = new System.Drawing.Size(292, 29);
+            this.BookTransfer.TabIndex = 0;
+            this.BookTransfer.Text = "Показать забронированный трансфер";
+            this.BookTransfer.UseVisualStyleBackColor = true;
+            this.BookTransfer.Click += new System.EventHandler(this.BookTransfer_Click);
             // 
-            // FbuttonAdd
+            // TransfParams
             // 
-            this.FbuttonAdd.Location = new System.Drawing.Point(6, 27);
-            this.FbuttonAdd.Name = "FbuttonAdd";
-            this.FbuttonAdd.Size = new System.Drawing.Size(292, 29);
-            this.FbuttonAdd.TabIndex = 0;
-            this.FbuttonAdd.Text = "Добавить питание";
-            this.FbuttonAdd.UseVisualStyleBackColor = true;
-            this.FbuttonAdd.Click += new System.EventHandler(this.FbuttonAdd_Click);
+            this.TransfParams.BackColor = System.Drawing.Color.LightGray;
+            this.TransfParams.Controls.Add(this.checkedListBoxTr);
+            this.TransfParams.Controls.Add(this.AllTransfer);
+            this.TransfParams.Controls.Add(this.label7);
+            this.TransfParams.Controls.Add(this.TrdateTimePickerBeg);
+            this.TransfParams.Controls.Add(this.TrcomboBoxCityT);
+            this.TransfParams.Controls.Add(this.TrcomboBoxCityF);
+            this.TransfParams.Controls.Add(this.label6);
+            this.TransfParams.Controls.Add(this.label5);
+            this.TransfParams.Location = new System.Drawing.Point(13, 14);
+            this.TransfParams.Name = "TransfParams";
+            this.TransfParams.Size = new System.Drawing.Size(304, 268);
+            this.TransfParams.TabIndex = 4;
+            this.TransfParams.TabStop = false;
+            this.TransfParams.Text = "Поиск транфера";
+            // 
+            // checkedListBoxTr
+            // 
+            this.checkedListBoxTr.CheckOnClick = true;
+            this.checkedListBoxTr.FormattingEnabled = true;
+            this.checkedListBoxTr.Items.AddRange(new object[] {
+            "Автобус",
+            "Самолет",
+            "Поезд"});
+            this.checkedListBoxTr.Location = new System.Drawing.Point(7, 148);
+            this.checkedListBoxTr.Name = "checkedListBoxTr";
+            this.checkedListBoxTr.Size = new System.Drawing.Size(150, 70);
+            this.checkedListBoxTr.TabIndex = 7;
+            this.checkedListBoxTr.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxTr_SelectedIndexChanged);
+            // 
+            // AllTransfer
+            // 
+            this.AllTransfer.Location = new System.Drawing.Point(7, 229);
+            this.AllTransfer.Name = "AllTransfer";
+            this.AllTransfer.Size = new System.Drawing.Size(291, 29);
+            this.AllTransfer.TabIndex = 6;
+            this.AllTransfer.Text = "Показать трансфер";
+            this.AllTransfer.UseVisualStyleBackColor = true;
+            this.AllTransfer.Click += new System.EventHandler(this.AllTransfer_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 112);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 20);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Дата";
+            // 
+            // TrdateTimePickerBeg
+            // 
+            this.TrdateTimePickerBeg.Location = new System.Drawing.Point(121, 111);
+            this.TrdateTimePickerBeg.Name = "TrdateTimePickerBeg";
+            this.TrdateTimePickerBeg.Size = new System.Drawing.Size(177, 27);
+            this.TrdateTimePickerBeg.TabIndex = 4;
+            // 
+            // TrcomboBoxCityT
+            // 
+            this.TrcomboBoxCityT.FormattingEnabled = true;
+            this.TrcomboBoxCityT.Items.AddRange(new object[] {
+            "",
+            "Москва",
+            "Питер",
+            "Казань",
+            "Самара",
+            "Тверь",
+            "Сочи",
+            "Мурманск",
+            "Челябинск"});
+            this.TrcomboBoxCityT.Location = new System.Drawing.Point(121, 61);
+            this.TrcomboBoxCityT.Name = "TrcomboBoxCityT";
+            this.TrcomboBoxCityT.Size = new System.Drawing.Size(177, 28);
+            this.TrcomboBoxCityT.TabIndex = 3;
+            this.TrcomboBoxCityT.SelectedIndexChanged += new System.EventHandler(this.TrcomboBoxCityT_SelectedIndexChanged);
+            // 
+            // TrcomboBoxCityF
+            // 
+            this.TrcomboBoxCityF.FormattingEnabled = true;
+            this.TrcomboBoxCityF.Items.AddRange(new object[] {
+            "",
+            "Москва",
+            "Питер",
+            "Казань",
+            "Самара",
+            "Тверь",
+            "Сочи",
+            "Мурманск",
+            "Челябинск"});
+            this.TrcomboBoxCityF.Location = new System.Drawing.Point(121, 27);
+            this.TrcomboBoxCityF.Name = "TrcomboBoxCityF";
+            this.TrcomboBoxCityF.Size = new System.Drawing.Size(177, 28);
+            this.TrcomboBoxCityF.TabIndex = 2;
+            this.TrcomboBoxCityF.SelectedIndexChanged += new System.EventHandler(this.TrcomboBoxCityF_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Куда";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Откуда";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1502, 709);
+            this.ClientSize = new System.Drawing.Size(1486, 644);
             this.Controls.Add(this.tabSelect);
             this.Controls.Add(this.TablesGrid);
             this.Name = "Form1";
@@ -760,8 +940,8 @@ namespace Tours
             this.ToursParams.PerformLayout();
             this.tabSelect.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.TgroupBoxAdd.ResumeLayout(false);
-            this.TgroupBoxAdd.PerformLayout();
+            this.TgroupBoxManage.ResumeLayout(false);
+            this.TgroupBoxManage.PerformLayout();
             this.TgroupBoxBook.ResumeLayout(false);
             this.TgroupBoxBook.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -772,11 +952,15 @@ namespace Tours
             this.HotelParams.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FnumericUDStars)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.FgroupBoxManage.ResumeLayout(false);
+            this.FgroupBoxManage.PerformLayout();
             this.FgroupBoxBook.ResumeLayout(false);
             this.FoodParams.ResumeLayout(false);
             this.FoodParams.PerformLayout();
-            this.FgroupBoxManage.ResumeLayout(false);
-            this.FgroupBoxManage.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.TrgroupBoxBook.ResumeLayout(false);
+            this.TransfParams.ResumeLayout(false);
+            this.TransfParams.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -820,7 +1004,7 @@ namespace Tours
         private System.Windows.Forms.Button TbuttonBook;
         private System.Windows.Forms.TextBox TtextBoxDeleteBook;
         private System.Windows.Forms.Button TbuttonDelBook;
-        private System.Windows.Forms.GroupBox TgroupBoxAdd;
+        private System.Windows.Forms.GroupBox TgroupBoxManage;
         private System.Windows.Forms.Button TbuttonAdd;
         private System.Windows.Forms.Button TbuttonDelTour;
         private System.Windows.Forms.TextBox TtextBoxDelTour;
@@ -836,9 +1020,22 @@ namespace Tours
         private System.Windows.Forms.Button HbuttonAdd;
         private System.Windows.Forms.GroupBox FgroupBoxManage;
         private System.Windows.Forms.Button FbuttonChange;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox FtextBoxDelFood;
         private System.Windows.Forms.Button FbuttonDelete;
         private System.Windows.Forms.Button FbuttonAdd;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.GroupBox TransfParams;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker TrdateTimePickerBeg;
+        private System.Windows.Forms.ComboBox TrcomboBoxCityT;
+        private System.Windows.Forms.ComboBox TrcomboBoxCityF;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button AllTransfer;
+        private System.Windows.Forms.CheckedListBox checkedListBoxTr;
+        private System.Windows.Forms.GroupBox TrgroupBoxBook;
+        private System.Windows.Forms.Button BookTransfer;
+        private System.Windows.Forms.CheckedListBox TrcheckedListBoxBook;
     }
 }
 

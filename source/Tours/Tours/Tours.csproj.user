@@ -19,5 +19,11 @@
     <Compile Update="Forms\FormTours.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\FormTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormTransfer2.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

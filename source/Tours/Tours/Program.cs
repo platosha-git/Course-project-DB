@@ -21,3 +21,5 @@ namespace Tours
         }
     }
 }
+
+//Scaffold-DbContext "Host=localhost;Port=5432;Database=Tours;Username=postgres;Password=21rfrnec" Npgsql.EntityFrameworkCore.PostgreSQL

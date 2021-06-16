@@ -66,10 +66,11 @@ namespace Tours
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.MtabPageFood = new System.Windows.Forms.TabPage();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.richTextBox11 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.FbuttonAdd = new System.Windows.Forms.Button();
             this.richTextBox14 = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.richTextBox15 = new System.Windows.Forms.RichTextBox();
@@ -87,6 +88,7 @@ namespace Tours
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.MtabPageFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -183,9 +185,9 @@ namespace Tours
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-4, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(551, 221);
+            this.pictureBox1.Size = new System.Drawing.Size(552, 234);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
@@ -288,7 +290,7 @@ namespace Tours
             this.MtabPageHotel.Location = new System.Drawing.Point(4, 29);
             this.MtabPageHotel.Name = "MtabPageHotel";
             this.MtabPageHotel.Padding = new System.Windows.Forms.Padding(3);
-            this.MtabPageHotel.Size = new System.Drawing.Size(543, 217);
+            this.MtabPageHotel.Size = new System.Drawing.Size(540, 217);
             this.MtabPageHotel.TabIndex = 1;
             this.MtabPageHotel.Text = "Отели";
             this.MtabPageHotel.UseVisualStyleBackColor = true;
@@ -439,18 +441,19 @@ namespace Tours
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(37, 33);
+            this.pictureBox2.Location = new System.Drawing.Point(-3, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(558, 221);
+            this.pictureBox2.Size = new System.Drawing.Size(550, 231);
             this.pictureBox2.TabIndex = 31;
             this.pictureBox2.TabStop = false;
             // 
             // MtabPageFood
             // 
+            this.MtabPageFood.Controls.Add(this.numericUpDown5);
             this.MtabPageFood.Controls.Add(this.numericUpDown3);
             this.MtabPageFood.Controls.Add(this.numericUpDown4);
             this.MtabPageFood.Controls.Add(this.richTextBox11);
-            this.MtabPageFood.Controls.Add(this.button1);
+            this.MtabPageFood.Controls.Add(this.FbuttonAdd);
             this.MtabPageFood.Controls.Add(this.richTextBox14);
             this.MtabPageFood.Controls.Add(this.label14);
             this.MtabPageFood.Controls.Add(this.richTextBox15);
@@ -459,16 +462,29 @@ namespace Tours
             this.MtabPageFood.Controls.Add(this.label17);
             this.MtabPageFood.Controls.Add(this.label19);
             this.MtabPageFood.Controls.Add(this.label20);
+            this.MtabPageFood.Controls.Add(this.pictureBox3);
             this.MtabPageFood.Location = new System.Drawing.Point(4, 29);
             this.MtabPageFood.Name = "MtabPageFood";
-            this.MtabPageFood.Size = new System.Drawing.Size(543, 217);
+            this.MtabPageFood.Size = new System.Drawing.Size(540, 217);
             this.MtabPageFood.TabIndex = 2;
             this.MtabPageFood.Text = "Питание";
             this.MtabPageFood.UseVisualStyleBackColor = true;
             // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Location = new System.Drawing.Point(221, 87);
+            this.numericUpDown5.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(47, 27);
+            this.numericUpDown5.TabIndex = 55;
+            // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(392, 87);
+            this.numericUpDown3.Location = new System.Drawing.Point(373, 86);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             1,
             0,
@@ -480,42 +496,38 @@ namespace Tours
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(330, 87);
+            this.numericUpDown4.Location = new System.Drawing.Point(297, 86);
             this.numericUpDown4.Maximum = new decimal(new int[] {
-            5,
+            1,
             0,
             0,
             0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(47, 27);
             this.numericUpDown4.TabIndex = 53;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
             // 
             // richTextBox11
             // 
-            this.richTextBox11.Location = new System.Drawing.Point(457, 86);
+            this.richTextBox11.Location = new System.Drawing.Point(440, 83);
             this.richTextBox11.Name = "richTextBox11";
             this.richTextBox11.Size = new System.Drawing.Size(83, 30);
             this.richTextBox11.TabIndex = 52;
             this.richTextBox11.Text = "";
             // 
-            // button1
+            // FbuttonAdd
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.Location = new System.Drawing.Point(144, 140);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 35);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Изменить";
-            this.button1.UseVisualStyleBackColor = false;
+            this.FbuttonAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.FbuttonAdd.Location = new System.Drawing.Point(162, 146);
+            this.FbuttonAdd.Name = "FbuttonAdd";
+            this.FbuttonAdd.Size = new System.Drawing.Size(222, 35);
+            this.FbuttonAdd.TabIndex = 39;
+            this.FbuttonAdd.Text = "Изменить";
+            this.FbuttonAdd.UseVisualStyleBackColor = false;
+            this.FbuttonAdd.Click += new System.EventHandler(this.FbuttonAdd_Click);
             // 
             // richTextBox14
             // 
-            this.richTextBox14.Location = new System.Drawing.Point(81, 87);
+            this.richTextBox14.Location = new System.Drawing.Point(104, 87);
             this.richTextBox14.Name = "richTextBox14";
             this.richTextBox14.Size = new System.Drawing.Size(81, 30);
             this.richTextBox14.TabIndex = 49;
@@ -532,7 +544,7 @@ namespace Tours
             // 
             // richTextBox15
             // 
-            this.richTextBox15.Location = new System.Drawing.Point(10, 87);
+            this.richTextBox15.Location = new System.Drawing.Point(21, 86);
             this.richTextBox15.Name = "richTextBox15";
             this.richTextBox15.Size = new System.Drawing.Size(40, 30);
             this.richTextBox15.TabIndex = 48;
@@ -586,9 +598,9 @@ namespace Tours
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(180, 253);
+            this.pictureBox3.Location = new System.Drawing.Point(-4, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(558, 221);
+            this.pictureBox3.Size = new System.Drawing.Size(553, 235);
             this.pictureBox3.TabIndex = 47;
             this.pictureBox3.TabStop = false;
             // 
@@ -597,9 +609,8 @@ namespace Tours
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(842, 486);
+            this.ClientSize = new System.Drawing.Size(547, 249);
             this.Controls.Add(this.MtabControl);
-            this.Controls.Add(this.pictureBox3);
             this.Name = "FormManageTour";
             this.Text = "FormManageTour";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -613,6 +624,7 @@ namespace Tours
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.MtabPageFood.ResumeLayout(false);
             this.MtabPageFood.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -661,7 +673,7 @@ namespace Tours
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.RichTextBox richTextBox11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button FbuttonAdd;
         private System.Windows.Forms.RichTextBox richTextBox14;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RichTextBox richTextBox15;
@@ -671,5 +683,6 @@ namespace Tours
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.NumericUpDown numericUpDown5;
     }
 }

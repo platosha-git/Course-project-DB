@@ -14,6 +14,7 @@ namespace Tours
 
         Tour Tour;
         Hotel Hotel;
+        Food Food;
 
         public FormManageTour(ChangeObj obj)
         {
@@ -22,11 +23,18 @@ namespace Tours
             if (obj == ChangeObj.Tour)
             {
                 MtabControl.Controls.Remove(MtabPageHotel);
+                MtabControl.Controls.Remove(MtabPageFood);
             }
 
             else if (obj == ChangeObj.Hotel)
             {
                 MtabControl.Controls.Remove(MtabPageTour);
+                MtabControl.Controls.Remove(MtabPageFood);
+            }
+            else if (obj == ChangeObj.Food)
+            {
+                MtabControl.Controls.Remove(MtabPageTour);
+                MtabControl.Controls.Remove(MtabPageHotel);
             }
 
             DateTime dateB = new DateTime(2022, 03, 10);
@@ -34,6 +42,8 @@ namespace Tours
             Tour = new Tour { Tourid = 11, Food = 1, Hotel = 2, Transfer = 3, Cost = 4, Datebegin = dateB.Date, Dateend = dateE.Date };
 
             Hotel = new Hotel { Hotelid = 11, Name = "Tenerife", Type = "Кемпинг", Class = 4, Swimpool = true, City = "Самара", Cost = 12190 };
+
+            Food = new Food { Foodid = 11, Category = "Завтрак", Vegmenu = true, Childrenmenu = true, Bar = false, Cost = 1234 };
         }
 
         /*--------------------------------------------------------------
@@ -88,6 +98,37 @@ namespace Tours
                 Hotel.Cost = Convert.ToInt32(richTextBox6.Text);
                 this.Close();
                 return Hotel;
+            }
+            catch (Exception er)
+            {
+                return null;
+            }
+
+        }
+
+        /*--------------------------------------------------------------
+         *                          Food
+         * -----------------------------------------------------------*/
+
+        private void FbuttonAdd_Click(object sender, EventArgs e)
+        {
+            ReturnFood();
+        }
+
+        public Food ReturnFood()
+        {
+
+            try
+            {
+                Food.Foodid = Convert.ToInt32(richTextBox15.Text);
+                Food.Category = richTextBox14.Text;
+                Food.Vegmenu = (numericUpDown5.Value == 0) ? false : true;
+                Food.Childrenmenu = (numericUpDown4.Value == 0) ? false : true;
+                Food.Bar = (numericUpDown3.Value == 0) ? false : true;
+                Food.Cost = Convert.ToInt32(richTextBox11.Text);
+
+                this.Close();
+                return Food;
             }
             catch (Exception er)
             {

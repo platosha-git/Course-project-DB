@@ -68,7 +68,7 @@ namespace Tours.ImpRepositories
         {
             IQueryable<User> users = db.Users.Where(needed => needed.Login.Equals(login) &&
                                                                    needed.Password.Equals(password));
-            if (users.Count() != 0)
+            if (users != null)
             {
                 return users.First();
             }
