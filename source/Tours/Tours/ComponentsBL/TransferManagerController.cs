@@ -6,8 +6,9 @@ namespace Tours.ComponentsBL
     public class TransferManagerController : UserController
     {
         public TransferManagerController(ITourRepository tourRep, IHotelRepository hotelRep, IFoodRepository foodRep,
-                                        ITransferRepository transferRep, IBusRepository busRep, IPlaneRepository planeRep, ITrainRepository trainRep) :
-            base(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep)
+                                        ITransferRepository transferRep, IBusRepository busRep, IPlaneRepository planeRep, ITrainRepository trainRep,
+                                        IFunctionsRepository funcRep) :
+            base(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep, funcRep)
         {
         }
 

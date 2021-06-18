@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tours.ModelsDB;
 using Tours.Repositories;
 
 
@@ -15,9 +16,12 @@ namespace Tours.ComponentsBL
         protected IBusRepository busRepository;
         protected IPlaneRepository planeRepository;
         protected ITrainRepository trainRepository;
-     
+
+        protected IFunctionsRepository funcRepository;
+
         public UserController(ITourRepository tourRep, IHotelRepository hotelRep, IFoodRepository foodRep, 
-                                ITransferRepository transferRep, IBusRepository busRep, IPlaneRepository planeRep, ITrainRepository trainRep)
+                                ITransferRepository transferRep, IBusRepository busRep, IPlaneRepository planeRep, ITrainRepository trainRep,
+                                IFunctionsRepository funcRep)
         {
             tourRepository = tourRep;
             hotelRepository = hotelRep;
@@ -27,6 +31,8 @@ namespace Tours.ComponentsBL
             busRepository = busRep;
             planeRepository = planeRep;
             trainRepository = trainRep;
+
+            funcRepository = funcRep;
         }
 
         /*--------------------------------------------------------------
@@ -35,6 +41,11 @@ namespace Tours.ComponentsBL
         public List<Tour> GetAllTours()
         {
             return tourRepository.FindAll();
+        }
+
+        public FullUserTour GetFullTour(int TID)
+        {
+            return funcRepository.GetFullTour(TID);
         }
 
         public List<Tour> GetToursByDate(DateTime beg, DateTime end)

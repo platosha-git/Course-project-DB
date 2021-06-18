@@ -123,7 +123,7 @@ namespace Tours
             this.Controls.Add(this.ArichTextBoxLogin);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormAuth";
-            this.Text = "FormAuth";
+            this.Text = "Авторизация";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

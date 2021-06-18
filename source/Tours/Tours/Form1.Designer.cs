@@ -934,7 +934,7 @@ namespace Tours
             this.Controls.Add(this.tabSelect);
             this.Controls.Add(this.TablesGrid);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Поиск туров";
             ((System.ComponentModel.ISupportInitialize)(this.TablesGrid)).EndInit();
             this.ToursParams.ResumeLayout(false);
             this.ToursParams.PerformLayout();

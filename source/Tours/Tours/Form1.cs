@@ -39,10 +39,11 @@ namespace Tours
 
             IUsersRepository usersRep = new UsersRepository(db, log);
             IUsersRepository bookingRep = new UsersRepository(db, log);
+            IFunctionsRepository funcRep = new FunctionsRepository(db, log);
 
-            guest = new GuestController(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep);
-            tourist = new TouristController(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep, bookingRep, usersRep);
-            manager = new ManagerController(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep, bookingRep, usersRep);
+            guest = new GuestController(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep, funcRep);
+            tourist = new TouristController(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep, bookingRep, usersRep, funcRep);
+            manager = new ManagerController(tourRep, hotelRep, foodRep, transferRep, busRep, planeRep, trainRep, bookingRep, usersRep, funcRep);
         }
 
         void ControlAccess(AccessLevel lvl)
@@ -52,6 +53,7 @@ namespace Tours
                 TgroupBoxBook.Visible = false;
                 HgroupBoxBook.Visible = false;
                 FgroupBoxBook.Visible = false;
+                TrgroupBoxBook.Visible = false;
 
                 TgroupBoxManage.Visible = false;
                 HgroupBoxManage.Visible = false;

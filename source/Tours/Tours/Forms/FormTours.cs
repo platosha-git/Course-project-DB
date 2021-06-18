@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using static Tours.FormManageTour;
+using Tours.ModelsDB;
 
 namespace Tours
 {
@@ -53,11 +54,11 @@ namespace Tours
                 for (int i = 0; i < numTours; i++)
                 {
                     Tour curTour = resTours[i];
-                    Food curFood = guest.GetFoodByID(curTour.Food);
-                    Hotel curHotel = guest.GetHotelByID(curTour.Hotel);
+                    FullUserTour curFTour = guest.GetFullTour(curTour.Tourid);
 
-                    TablesGrid.Rows.Add(curTour.Tourid, curHotel.City, curHotel.Name, curHotel.Type, curFood.Category, curTour.Transfer, curTour.Cost,
-                        curTour.Datebegin.Date.ToString("d"), curTour.Dateend.Date.ToString("d"));
+                    TablesGrid.Rows.Add(curFTour.tourid, curFTour.city, curFTour.name, curFTour.type,
+                        curFTour.category, curFTour.transfer, curFTour.cost, 
+                        curFTour.datebegin.ToString("d"), curFTour.dateend.ToString("d"));
                 }
             }
             else
@@ -88,11 +89,11 @@ namespace Tours
                 for (int i = 0; i < numTours; i++)
                 {
                     Tour curTour = tours[i];
-                    Food curFood = tourist.GetFoodByID(curTour.Food);
-                    Hotel curHotel = tourist.GetHotelByID(curTour.Hotel);
+                    FullUserTour curFTour = guest.GetFullTour(curTour.Tourid);
 
-                    TablesGrid.Rows.Add(curTour.Tourid, curHotel.City, curHotel.Name, curHotel.Type, curFood.Category, curTour.Transfer, curTour.Cost,
-                        curTour.Datebegin.Date.ToString("d"), curTour.Dateend.Date.ToString("d"));
+                    TablesGrid.Rows.Add(curFTour.tourid, curFTour.city, curFTour.name, curFTour.type,
+                        curFTour.category, curFTour.transfer, curFTour.cost,
+                        curFTour.datebegin.ToString("d"), curFTour.dateend.ToString("d"));
                 }
             }
             else
